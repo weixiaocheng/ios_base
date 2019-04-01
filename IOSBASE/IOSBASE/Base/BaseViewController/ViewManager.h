@@ -11,7 +11,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ViewManager : NSObject
+@property (nonatomic, copy) NSArray *data_soure;
 
++ (instancetype)shareInstance; 
+
+// 获取pilist 数据
+- (void)loadData;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		18EED22B2252020800ACEF25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EED22A2252020800ACEF25 /* AppDelegate.m */; };
-		18EED22E2252020800ACEF25 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EED22D2252020800ACEF25 /* ViewController.m */; };
 		18EED2312252020800ACEF25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18EED22F2252020800ACEF25 /* Main.storyboard */; };
 		18EED2332252020800ACEF25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18EED2322252020800ACEF25 /* Assets.xcassets */; };
 		18EED2362252020800ACEF25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18EED2342252020800ACEF25 /* LaunchScreen.storyboard */; };
 		18EED2392252020800ACEF25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EED2382252020800ACEF25 /* main.m */; };
 		18EED2432252020800ACEF25 /* IOSBASETests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EED2422252020800ACEF25 /* IOSBASETests.m */; };
 		18EED24E2252020900ACEF25 /* IOSBASEUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EED24D2252020900ACEF25 /* IOSBASEUITests.m */; };
+		18EED25C22520A0500ACEF25 /* base_list.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18EED25B22520A0500ACEF25 /* base_list.plist */; };
+		18EED26822520B8500ACEF25 /* LabelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EED26722520B8500ACEF25 /* LabelViewController.m */; };
+		18EED272225217DB00ACEF25 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EED271225217DB00ACEF25 /* ViewController.m */; };
+		18EED27522521A4700ACEF25 /* ViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EED27422521A4700ACEF25 /* ViewManager.m */; };
+		18EED27822521EFE00ACEF25 /* DataOBJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EED27722521EFE00ACEF25 /* DataOBJ.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +42,6 @@
 		18EED2262252020800ACEF25 /* IOSBASE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSBASE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EED2292252020800ACEF25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		18EED22A2252020800ACEF25 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		18EED22C2252020800ACEF25 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		18EED22D2252020800ACEF25 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		18EED2302252020800ACEF25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18EED2322252020800ACEF25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18EED2352252020800ACEF25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +53,15 @@
 		18EED2492252020900ACEF25 /* IOSBASEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSBASEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EED24D2252020900ACEF25 /* IOSBASEUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSBASEUITests.m; sourceTree = "<group>"; };
 		18EED24F2252020900ACEF25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18EED25B22520A0500ACEF25 /* base_list.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = base_list.plist; path = "IOSBASE/Supporting Files/base_list.plist"; sourceTree = SOURCE_ROOT; };
+		18EED26622520B8500ACEF25 /* LabelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LabelViewController.h; sourceTree = "<group>"; };
+		18EED26722520B8500ACEF25 /* LabelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LabelViewController.m; sourceTree = "<group>"; };
+		18EED270225217DB00ACEF25 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		18EED271225217DB00ACEF25 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		18EED27322521A4700ACEF25 /* ViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewManager.h; sourceTree = "<group>"; };
+		18EED27422521A4700ACEF25 /* ViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewManager.m; sourceTree = "<group>"; };
+		18EED27622521EFE00ACEF25 /* DataOBJ.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataOBJ.h; sourceTree = "<group>"; };
+		18EED27722521EFE00ACEF25 /* DataOBJ.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataOBJ.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,15 +112,15 @@
 		18EED2282252020800ACEF25 /* IOSBASE */ = {
 			isa = PBXGroup;
 			children = (
-				18EED2292252020800ACEF25 /* AppDelegate.h */,
-				18EED22A2252020800ACEF25 /* AppDelegate.m */,
-				18EED22C2252020800ACEF25 /* ViewController.h */,
-				18EED22D2252020800ACEF25 /* ViewController.m */,
-				18EED22F2252020800ACEF25 /* Main.storyboard */,
-				18EED2322252020800ACEF25 /* Assets.xcassets */,
-				18EED2342252020800ACEF25 /* LaunchScreen.storyboard */,
-				18EED2372252020800ACEF25 /* Info.plist */,
-				18EED2382252020800ACEF25 /* main.m */,
+				18EED26522520AE900ACEF25 /* Supporting Files */,
+				18EED26422520ADA00ACEF25 /* Resource */,
+				18EED26322520ACC00ACEF25 /* ThridPraty */,
+				18EED26222520AC400ACEF25 /* Base */,
+				18EED26122520AB300ACEF25 /* Utils */,
+				18EED26022520AA800ACEF25 /* Manager */,
+				18EED25F22520A9000ACEF25 /* Module */,
+				18EED25E22520A2300ACEF25 /* AppDelegate */,
+				18EED25D22520A1100ACEF25 /* Tools */,
 			);
 			path = IOSBASE;
 			sourceTree = "<group>";
@@ -130,6 +141,109 @@
 				18EED24F2252020900ACEF25 /* Info.plist */,
 			);
 			path = IOSBASEUITests;
+			sourceTree = "<group>";
+		};
+		18EED25D22520A1100ACEF25 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		18EED25E22520A2300ACEF25 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				18EED2292252020800ACEF25 /* AppDelegate.h */,
+				18EED22A2252020800ACEF25 /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		18EED25F22520A9000ACEF25 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				18EED26A225213B400ACEF25 /* UIView */,
+				18EED26922520B8A00ACEF25 /* UILabel */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		18EED26022520AA800ACEF25 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		18EED26122520AB300ACEF25 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		18EED26222520AC400ACEF25 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				18EED26B225213E000ACEF25 /* BaseViewController */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		18EED26322520ACC00ACEF25 /* ThridPraty */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ThridPraty;
+			sourceTree = "<group>";
+		};
+		18EED26422520ADA00ACEF25 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		18EED26522520AE900ACEF25 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				18EED22F2252020800ACEF25 /* Main.storyboard */,
+				18EED2322252020800ACEF25 /* Assets.xcassets */,
+				18EED2342252020800ACEF25 /* LaunchScreen.storyboard */,
+				18EED2372252020800ACEF25 /* Info.plist */,
+				18EED2382252020800ACEF25 /* main.m */,
+				18EED25B22520A0500ACEF25 /* base_list.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18EED26922520B8A00ACEF25 /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				18EED26622520B8500ACEF25 /* LabelViewController.h */,
+				18EED26722520B8500ACEF25 /* LabelViewController.m */,
+			);
+			path = UILabel;
+			sourceTree = "<group>";
+		};
+		18EED26A225213B400ACEF25 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		18EED26B225213E000ACEF25 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				18EED270225217DB00ACEF25 /* ViewController.h */,
+				18EED271225217DB00ACEF25 /* ViewController.m */,
+				18EED27322521A4700ACEF25 /* ViewManager.h */,
+				18EED27422521A4700ACEF25 /* ViewManager.m */,
+				18EED27622521EFE00ACEF25 /* DataOBJ.h */,
+				18EED27722521EFE00ACEF25 /* DataOBJ.m */,
+			);
+			path = BaseViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +352,7 @@
 				18EED2362252020800ACEF25 /* LaunchScreen.storyboard in Resources */,
 				18EED2332252020800ACEF25 /* Assets.xcassets in Resources */,
 				18EED2312252020800ACEF25 /* Main.storyboard in Resources */,
+				18EED25C22520A0500ACEF25 /* base_list.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,9 +377,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18EED22E2252020800ACEF25 /* ViewController.m in Sources */,
 				18EED2392252020800ACEF25 /* main.m in Sources */,
+				18EED27522521A4700ACEF25 /* ViewManager.m in Sources */,
 				18EED22B2252020800ACEF25 /* AppDelegate.m in Sources */,
+				18EED272225217DB00ACEF25 /* ViewController.m in Sources */,
+				18EED26822520B8500ACEF25 /* LabelViewController.m in Sources */,
+				18EED27822521EFE00ACEF25 /* DataOBJ.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,7 +555,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56L859Z482;
-				INFOPLIST_FILE = IOSBASE/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/IOSBASE/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,7 +573,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56L859Z482;
-				INFOPLIST_FILE = IOSBASE/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/IOSBASE/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
