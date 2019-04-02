@@ -103,6 +103,10 @@ UITableViewDataSource
     }
     // 切换进入对应的界面
     id VCtrl = [[NSClassFromString(item_obj.controller_name) alloc] init];
+    
+    if (VCtrl == nil) {
+        return;
+    }
     [VCtrl setValue:item_obj.name forKey:@"title"];
     [self.navigationController pushViewController:VCtrl animated:true];
 }
