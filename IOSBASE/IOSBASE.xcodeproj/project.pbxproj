@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18CDE2A7225305BF0000F7B2 /* ButtonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDE2A6225305BF0000F7B2 /* ButtonController.m */; };
+		18CDE2AA225306D70000F7B2 /* CommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDE2A9225306D70000F7B2 /* CommonTools.m */; };
 		18EED22B2252020800ACEF25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EED22A2252020800ACEF25 /* AppDelegate.m */; };
-		18EED2312252020800ACEF25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18EED22F2252020800ACEF25 /* Main.storyboard */; };
 		18EED2332252020800ACEF25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18EED2322252020800ACEF25 /* Assets.xcassets */; };
 		18EED2362252020800ACEF25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18EED2342252020800ACEF25 /* LaunchScreen.storyboard */; };
 		18EED2392252020800ACEF25 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EED2382252020800ACEF25 /* main.m */; };
@@ -45,10 +46,13 @@
 		127FF3DB5BEF57D3F200943C /* libPods-IOSBASEUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IOSBASEUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BC03C82252F406005355D9 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		18BC03C92252F581005355D9 /* BaseSetHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseSetHeader.h; sourceTree = "<group>"; };
+		18CDE2A5225305BF0000F7B2 /* ButtonController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonController.h; sourceTree = "<group>"; };
+		18CDE2A6225305BF0000F7B2 /* ButtonController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonController.m; sourceTree = "<group>"; };
+		18CDE2A8225306D70000F7B2 /* CommonTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonTools.h; sourceTree = "<group>"; };
+		18CDE2A9225306D70000F7B2 /* CommonTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonTools.m; sourceTree = "<group>"; };
 		18EED2262252020800ACEF25 /* IOSBASE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSBASE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EED2292252020800ACEF25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		18EED22A2252020800ACEF25 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		18EED2302252020800ACEF25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18EED2322252020800ACEF25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18EED2352252020800ACEF25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18EED2372252020800ACEF25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -115,6 +119,15 @@
 			path = Define;
 			sourceTree = "<group>";
 		};
+		18CDE2A4225305AB0000F7B2 /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				18CDE2A5225305BF0000F7B2 /* ButtonController.h */,
+				18CDE2A6225305BF0000F7B2 /* ButtonController.m */,
+			);
+			path = UIButton;
+			sourceTree = "<group>";
+		};
 		18EED21D2252020800ACEF25 = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +188,8 @@
 		18EED25D22520A1100ACEF25 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				18CDE2A8225306D70000F7B2 /* CommonTools.h */,
+				18CDE2A9225306D70000F7B2 /* CommonTools.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -191,6 +206,7 @@
 		18EED25F22520A9000ACEF25 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				18CDE2A4225305AB0000F7B2 /* UIButton */,
 				18EED26A225213B400ACEF25 /* UIView */,
 				18EED26922520B8A00ACEF25 /* UILabel */,
 			);
@@ -236,7 +252,6 @@
 		18EED26522520AE900ACEF25 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				18EED22F2252020800ACEF25 /* Main.storyboard */,
 				18EED2322252020800ACEF25 /* Assets.xcassets */,
 				18EED2342252020800ACEF25 /* LaunchScreen.storyboard */,
 				18EED2372252020800ACEF25 /* Info.plist */,
@@ -406,7 +421,6 @@
 			files = (
 				18EED2362252020800ACEF25 /* LaunchScreen.storyboard in Resources */,
 				18EED2332252020800ACEF25 /* Assets.xcassets in Resources */,
-				18EED2312252020800ACEF25 /* Main.storyboard in Resources */,
 				18EED25C22520A0500ACEF25 /* base_list.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,7 +517,9 @@
 			files = (
 				18EED2392252020800ACEF25 /* main.m in Sources */,
 				18EED27522521A4700ACEF25 /* ViewManager.m in Sources */,
+				18CDE2AA225306D70000F7B2 /* CommonTools.m in Sources */,
 				18EED22B2252020800ACEF25 /* AppDelegate.m in Sources */,
+				18CDE2A7225305BF0000F7B2 /* ButtonController.m in Sources */,
 				18EED272225217DB00ACEF25 /* ViewController.m in Sources */,
 				18EED26822520B8500ACEF25 /* LabelViewController.m in Sources */,
 				18EED27822521EFE00ACEF25 /* DataOBJ.m in Sources */,
@@ -542,14 +558,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		18EED22F2252020800ACEF25 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				18EED2302252020800ACEF25 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		18EED2342252020800ACEF25 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
