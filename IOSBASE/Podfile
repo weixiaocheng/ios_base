@@ -7,6 +7,7 @@ target 'IOSBASE' do
 
   # Pods for IOSBASE
   pod 'Masonry', '~> 1.1.0'
+  pod 'MJRefresh'
   target 'IOSBASETests' do
     inherit! :search_paths
     # Pods for testing

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		18CDE2A7225305BF0000F7B2 /* ButtonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDE2A6225305BF0000F7B2 /* ButtonController.m */; };
 		18CDE2AA225306D70000F7B2 /* CommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDE2A9225306D70000F7B2 /* CommonTools.m */; };
+		18E42CFE22543E2E00BF92A2 /* BarItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E42CFD22543E2E00BF92A2 /* BarItemController.m */; };
+		18E42D00225440D400BF92A2 /* 970DFED771023CDF0E9428A12A9FECF3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18E42CFF225440D400BF92A2 /* 970DFED771023CDF0E9428A12A9FECF3.gif */; };
+		18E42D02225440DE00BF92A2 /* 123.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E42D01225440DE00BF92A2 /* 123.png */; };
+		18E42D06225443FF00BF92A2 /* TableviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E42D05225443FF00BF92A2 /* TableviewController.m */; };
 		18EED22B2252020800ACEF25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EED22A2252020800ACEF25 /* AppDelegate.m */; };
 		18EED2332252020800ACEF25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18EED2322252020800ACEF25 /* Assets.xcassets */; };
 		18EED2362252020800ACEF25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18EED2342252020800ACEF25 /* LaunchScreen.storyboard */; };
@@ -50,6 +54,12 @@
 		18CDE2A6225305BF0000F7B2 /* ButtonController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonController.m; sourceTree = "<group>"; };
 		18CDE2A8225306D70000F7B2 /* CommonTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonTools.h; sourceTree = "<group>"; };
 		18CDE2A9225306D70000F7B2 /* CommonTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonTools.m; sourceTree = "<group>"; };
+		18E42CFC22543E2E00BF92A2 /* BarItemController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarItemController.h; sourceTree = "<group>"; };
+		18E42CFD22543E2E00BF92A2 /* BarItemController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarItemController.m; sourceTree = "<group>"; };
+		18E42CFF225440D400BF92A2 /* 970DFED771023CDF0E9428A12A9FECF3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 970DFED771023CDF0E9428A12A9FECF3.gif; sourceTree = "<group>"; };
+		18E42D01225440DE00BF92A2 /* 123.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 123.png; sourceTree = "<group>"; };
+		18E42D04225443FF00BF92A2 /* TableviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableviewController.h; sourceTree = "<group>"; };
+		18E42D05225443FF00BF92A2 /* TableviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableviewController.m; sourceTree = "<group>"; };
 		18EED2262252020800ACEF25 /* IOSBASE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSBASE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EED2292252020800ACEF25 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		18EED22A2252020800ACEF25 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -126,6 +136,24 @@
 				18CDE2A6225305BF0000F7B2 /* ButtonController.m */,
 			);
 			path = UIButton;
+			sourceTree = "<group>";
+		};
+		18E42CFB22543E1500BF92A2 /* UIBarItem */ = {
+			isa = PBXGroup;
+			children = (
+				18E42CFC22543E2E00BF92A2 /* BarItemController.h */,
+				18E42CFD22543E2E00BF92A2 /* BarItemController.m */,
+			);
+			path = UIBarItem;
+			sourceTree = "<group>";
+		};
+		18E42D03225443D400BF92A2 /* uitableview */ = {
+			isa = PBXGroup;
+			children = (
+				18E42D04225443FF00BF92A2 /* TableviewController.h */,
+				18E42D05225443FF00BF92A2 /* TableviewController.m */,
+			);
+			path = uitableview;
 			sourceTree = "<group>";
 		};
 		18EED21D2252020800ACEF25 = {
@@ -206,6 +234,8 @@
 		18EED25F22520A9000ACEF25 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				18E42D03225443D400BF92A2 /* uitableview */,
+				18E42CFB22543E1500BF92A2 /* UIBarItem */,
 				18CDE2A4225305AB0000F7B2 /* UIButton */,
 				18EED26A225213B400ACEF25 /* UIView */,
 				18EED26922520B8A00ACEF25 /* UILabel */,
@@ -253,6 +283,8 @@
 			isa = PBXGroup;
 			children = (
 				18EED2322252020800ACEF25 /* Assets.xcassets */,
+				18E42D01225440DE00BF92A2 /* 123.png */,
+				18E42CFF225440D400BF92A2 /* 970DFED771023CDF0E9428A12A9FECF3.gif */,
 				18EED2342252020800ACEF25 /* LaunchScreen.storyboard */,
 				18EED2372252020800ACEF25 /* Info.plist */,
 				18EED2382252020800ACEF25 /* main.m */,
@@ -324,6 +356,7 @@
 				18EED2222252020800ACEF25 /* Sources */,
 				18EED2232252020800ACEF25 /* Frameworks */,
 				18EED2242252020800ACEF25 /* Resources */,
+				251E04F78902CF7582269C76 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -420,6 +453,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				18EED2362252020800ACEF25 /* LaunchScreen.storyboard in Resources */,
+				18E42D02225440DE00BF92A2 /* 123.png in Resources */,
+				18E42D00225440D400BF92A2 /* 970DFED771023CDF0E9428A12A9FECF3.gif in Resources */,
 				18EED2332252020800ACEF25 /* Assets.xcassets in Resources */,
 				18EED25C22520A0500ACEF25 /* base_list.plist in Resources */,
 			);
@@ -462,6 +497,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		251E04F78902CF7582269C76 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-IOSBASE/Pods-IOSBASE-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IOSBASE/Pods-IOSBASE-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3D25AD83A021AAD1D52A5A41 /* [CP] Check Pods Manifest.lock */ = {
@@ -519,10 +576,12 @@
 				18EED27522521A4700ACEF25 /* ViewManager.m in Sources */,
 				18CDE2AA225306D70000F7B2 /* CommonTools.m in Sources */,
 				18EED22B2252020800ACEF25 /* AppDelegate.m in Sources */,
+				18E42CFE22543E2E00BF92A2 /* BarItemController.m in Sources */,
 				18CDE2A7225305BF0000F7B2 /* ButtonController.m in Sources */,
 				18EED272225217DB00ACEF25 /* ViewController.m in Sources */,
 				18EED26822520B8500ACEF25 /* LabelViewController.m in Sources */,
 				18EED27822521EFE00ACEF25 /* DataOBJ.m in Sources */,
+				18E42D06225443FF00BF92A2 /* TableviewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
