@@ -7,15 +7,12 @@
 //
 
 #import "AnimationViewController.h"
-
-@interface AnimationViewController ()<
-UITableViewDelegate,
-UITableViewDataSource
->
+#import "TableView.h"
+@interface AnimationViewController ()<KCTableViewDelegate>
 {
     NSArray *dataList; /*数据源*/
 }
-@property (nonatomic, strong) UITableView *tableview;
+@property (nonatomic, strong) TableView *tableview;
 
 @end
 
@@ -37,42 +34,32 @@ UITableViewDataSource
                  ];
 }
 
+- (TableView *)tableview
+{
+    if (!_tableview) {
+        _tableview = [[TableView alloc] initWithFrame:self.view.bounds];
+        _tableview.delegate = self;
+    }
+    return _tableview;
+}
+
 - (void)setUpview
 {
     [self.view addSubview:self.tableview];
 }
 
-- (UITableView *)tableview
-{
-    if (!_tableview) {
-        _tableview = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-        _tableview.delegate = self;
-        _tableview.dataSource = self;
-        _tableview.tableFooterView = [UIView new];
-    }
-    return _tableview;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)TableView: (TableView *)tableview numberOfSection: (NSInteger)section
 {
     return dataList.count;
 }
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSString *)TableView: (TableView *)tableview nameOfCelltext: (NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idCell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"idCell"];
-        cell.textLabel.font = [UIFont systemFontOfSize:15];
-        cell.textLabel.textColor = RandColor;
-    }
     NSDictionary *dict = dataList[indexPath.row];
-    cell.textLabel.text = dict[@"name"];
-    return cell;
+    return dict[@"name"];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)TableView: (TableView *)tableview didSelectCellIndexPath: (NSIndexPath *)indexPath
 {
     NSDictionary *dict = dataList[indexPath.row];
     id ctrl = [[NSClassFromString(dict[@"className"]) alloc] init];
