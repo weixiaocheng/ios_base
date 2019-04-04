@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		186129FE22559BB800C6B3E7 /* ColletionviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186129FD22559BB800C6B3E7 /* ColletionviewController.m */; };
+		18612A012255A53400C6B3E7 /* WaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18612A002255A53400C6B3E7 /* WaterFlowLayout.m */; };
 		18CDE2A7225305BF0000F7B2 /* ButtonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDE2A6225305BF0000F7B2 /* ButtonController.m */; };
 		18CDE2AA225306D70000F7B2 /* CommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDE2A9225306D70000F7B2 /* CommonTools.m */; };
 		18E42CFE22543E2E00BF92A2 /* BarItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E42CFD22543E2E00BF92A2 /* BarItemController.m */; };
@@ -51,6 +52,8 @@
 		127FF3DB5BEF57D3F200943C /* libPods-IOSBASEUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IOSBASEUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		186129FC22559BB800C6B3E7 /* ColletionviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColletionviewController.h; sourceTree = "<group>"; };
 		186129FD22559BB800C6B3E7 /* ColletionviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColletionviewController.m; sourceTree = "<group>"; };
+		186129FF2255A53400C6B3E7 /* WaterFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaterFlowLayout.h; sourceTree = "<group>"; };
+		18612A002255A53400C6B3E7 /* WaterFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaterFlowLayout.m; sourceTree = "<group>"; };
 		18BC03C82252F406005355D9 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		18BC03C92252F581005355D9 /* BaseSetHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseSetHeader.h; sourceTree = "<group>"; };
 		18CDE2A5225305BF0000F7B2 /* ButtonController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonController.h; sourceTree = "<group>"; };
@@ -128,6 +131,8 @@
 			children = (
 				186129FC22559BB800C6B3E7 /* ColletionviewController.h */,
 				186129FD22559BB800C6B3E7 /* ColletionviewController.m */,
+				186129FF2255A53400C6B3E7 /* WaterFlowLayout.h */,
+				18612A002255A53400C6B3E7 /* WaterFlowLayout.m */,
 			);
 			path = UICollectview;
 			sourceTree = "<group>";
@@ -586,6 +591,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18EED2392252020800ACEF25 /* main.m in Sources */,
+				18612A012255A53400C6B3E7 /* WaterFlowLayout.m in Sources */,
 				18EED27522521A4700ACEF25 /* ViewManager.m in Sources */,
 				186129FE22559BB800C6B3E7 /* ColletionviewController.m in Sources */,
 				18CDE2AA225306D70000F7B2 /* CommonTools.m in Sources */,

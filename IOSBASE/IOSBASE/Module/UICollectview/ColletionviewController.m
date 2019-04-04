@@ -7,15 +7,46 @@
 //
 
 #import "ColletionviewController.h"
+#import "WaterFlowLayout.h"
+@interface UICollectionCell : UICollectionViewCell
+@property (nonatomic, strong) UILabel *label;
 
+@end
+
+@implementation UICollectionCell
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setUpView];
+    }
+    return self;
+}
+
+- (void)setUpView
+{
+    _label = [[UILabel alloc] initWithFrame:self.contentView.bounds];
+    [self addSubview:_label];
+    _label.numberOfLines = 0;
+    [_label mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self);
+    }];
+    _label.textColor = [UIColor whiteColor];
+}
+
+
+@end
 
 @interface ColletionviewController ()
 <
 UICollectionViewDelegate,
 UICollectionViewDataSource,
-UICollectionViewDelegateFlowLayout
+UICollectionViewDelegateFlowLayout,
+WaterFlowLayoutDelegate
 >
 @property (nonatomic, strong) UICollectionView *collectionview;
+@property (nonatomic, assign) NSInteger totalCount;
+@property (nonatomic, strong) NSMutableArray *heightArray;
 @end
 
 @implementation ColletionviewController
@@ -30,60 +61,96 @@ UICollectionViewDelegateFlowLayout
     [self.view addSubview:self.collectionview];
 }
 
+- (NSMutableArray *)heightArray
+{
+    if (!_heightArray) {
+        _heightArray = [NSMutableArray array];
+    }
+    return _heightArray;
+}
+
 #pragma mark -- collectionveiw
 - (UICollectionView *)collectionview
 {
     if (!_collectionview) {
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        WaterFlowLayout *layout = [[WaterFlowLayout alloc] init];
+        layout.delegate = self;
         _collectionview = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
         _collectionview.delegate = self;
         _collectionview.dataSource = self;
-        [_collectionview registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"idcell"];
-//        _collectionview.backgroundColor = [UIColor whiteColor];
+        WeakSelf;
+        [_collectionview registerClass:[UICollectionCell class] forCellWithReuseIdentifier:@"idcell"];
+
+        _collectionview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+             weakSelf.totalCount = 10;
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.35 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [weakSelf.collectionview.mj_header endRefreshing];
+                [weakSelf.collectionview.mj_footer endRefreshing];
+                [weakSelf.collectionview reloadData];
+            });
+           
+        }];
+        _collectionview.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            weakSelf.totalCount = weakSelf.totalCount + 10;
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.35 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [weakSelf.collectionview.mj_header endRefreshing];
+                [weakSelf.collectionview.mj_footer endRefreshing];
+                [weakSelf.collectionview reloadData];
+            });
+            
+        }];
+        
+        [_collectionview.mj_header beginRefreshing];
     }
     return _collectionview;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 1;
+    return 3;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 100;
+    collectionView.mj_footer.hidden = _totalCount == 0;
+    return _totalCount;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idcell" forIndexPath:indexPath];
+    UICollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idcell" forIndexPath:indexPath];
     cell.contentView.backgroundColor = RandColor;
+    cell.label.text = [NSString stringWithFormat:@" %ld x %ld", indexPath.section, indexPath.row];
+   
     return cell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)waterFlowLayout:(WaterFlowLayout *)waterFlowLayout heigthForItemAtIndex:(NSUInteger)index itemWidth:(CGFloat)itemWidth
 {
+    
+    if (index < self.heightArray.count) {
+        return [self.heightArray[index] floatValue];
+    }
+    
     CGFloat height = random()%200;
     if (height < 100) {
         height = 100;
     }
-    return CGSizeMake((SCREEN_WIDTHL - 20)/3 - 10, height);
+    [self.heightArray addObject:[NSNumber numberWithFloat:height]];
+    return height;
 }
 
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    return UIEdgeInsetsMake(10, 10, 10, 10);
+- (CGFloat)columnCountInWaterflowLayout:(WaterFlowLayout *)waterflowLayout {
+    return 3;
 }
-
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
-{
-    return 2;
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
-{
+- (CGFloat)columnMarginInWaterflowLayout:(WaterFlowLayout *)waterflowLayout {
     return 10;
+}
+- (CGFloat)rowMarginInWaterflowLayout:(WaterFlowLayout *)waterflowLayout {
+    return 10;
+}
+- (UIEdgeInsets)edgeInsetsInWaterflowLayout:(WaterFlowLayout *)waterflowLayout {
+    return UIEdgeInsetsMake(10, 10, 10, 10);
 }
 
 @end
