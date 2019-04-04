@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		183BB7652255D8F700F04933 /* wkwebviewControllerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BB7642255D8F700F04933 /* wkwebviewControllerView.m */; };
+		183BB7692255DC9600F04933 /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BB7682255DC9600F04933 /* AnimationViewController.m */; };
+		183BB76C2255DFCC00F04933 /* GravityAnimationCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BB76B2255DFCC00F04933 /* GravityAnimationCtrl.m */; };
+		183BB76F2255DFDB00F04933 /* ElasticAnimationCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BB76E2255DFDB00F04933 /* ElasticAnimationCtrl.m */; };
 		186129FE22559BB800C6B3E7 /* ColletionviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186129FD22559BB800C6B3E7 /* ColletionviewController.m */; };
 		18612A012255A53400C6B3E7 /* WaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18612A002255A53400C6B3E7 /* WaterFlowLayout.m */; };
 		18612A052255B8AD00C6B3E7 /* WebviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18612A042255B8AD00C6B3E7 /* WebviewController.m */; };
@@ -55,6 +58,12 @@
 		127FF3DB5BEF57D3F200943C /* libPods-IOSBASEUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IOSBASEUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		183BB7632255D8F700F04933 /* wkwebviewControllerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wkwebviewControllerView.h; sourceTree = "<group>"; };
 		183BB7642255D8F700F04933 /* wkwebviewControllerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wkwebviewControllerView.m; sourceTree = "<group>"; };
+		183BB7672255DC9600F04933 /* AnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationViewController.h; sourceTree = "<group>"; };
+		183BB7682255DC9600F04933 /* AnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationViewController.m; sourceTree = "<group>"; };
+		183BB76A2255DFCC00F04933 /* GravityAnimationCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GravityAnimationCtrl.h; sourceTree = "<group>"; };
+		183BB76B2255DFCC00F04933 /* GravityAnimationCtrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GravityAnimationCtrl.m; sourceTree = "<group>"; };
+		183BB76D2255DFDB00F04933 /* ElasticAnimationCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ElasticAnimationCtrl.h; sourceTree = "<group>"; };
+		183BB76E2255DFDB00F04933 /* ElasticAnimationCtrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ElasticAnimationCtrl.m; sourceTree = "<group>"; };
 		186129FC22559BB800C6B3E7 /* ColletionviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColletionviewController.h; sourceTree = "<group>"; };
 		186129FD22559BB800C6B3E7 /* ColletionviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColletionviewController.m; sourceTree = "<group>"; };
 		186129FF2255A53400C6B3E7 /* WaterFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaterFlowLayout.h; sourceTree = "<group>"; };
@@ -134,6 +143,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		183BB7662255DC8B00F04933 /* AnimationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				183BB7672255DC9600F04933 /* AnimationViewController.h */,
+				183BB7682255DC9600F04933 /* AnimationViewController.m */,
+				183BB76D2255DFDB00F04933 /* ElasticAnimationCtrl.h */,
+				183BB76E2255DFDB00F04933 /* ElasticAnimationCtrl.m */,
+				183BB76A2255DFCC00F04933 /* GravityAnimationCtrl.h */,
+				183BB76B2255DFCC00F04933 /* GravityAnimationCtrl.m */,
+			);
+			path = AnimationViewController;
+			sourceTree = "<group>";
+		};
 		186129FB22559BA800C6B3E7 /* UICollectview */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +292,7 @@
 		18EED25F22520A9000ACEF25 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				183BB7662255DC8B00F04933 /* AnimationViewController */,
 				18612A022255B89E00C6B3E7 /* UIwebviewController */,
 				186129FB22559BA800C6B3E7 /* UICollectview */,
 				18E42D03225443D400BF92A2 /* uitableview */,
@@ -613,6 +636,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18EED2392252020800ACEF25 /* main.m in Sources */,
+				183BB76F2255DFDB00F04933 /* ElasticAnimationCtrl.m in Sources */,
 				18612A012255A53400C6B3E7 /* WaterFlowLayout.m in Sources */,
 				18EED27522521A4700ACEF25 /* ViewManager.m in Sources */,
 				186129FE22559BB800C6B3E7 /* ColletionviewController.m in Sources */,
@@ -624,6 +648,8 @@
 				18612A052255B8AD00C6B3E7 /* WebviewController.m in Sources */,
 				183BB7652255D8F700F04933 /* wkwebviewControllerView.m in Sources */,
 				18EED26822520B8500ACEF25 /* LabelViewController.m in Sources */,
+				183BB76C2255DFCC00F04933 /* GravityAnimationCtrl.m in Sources */,
+				183BB7692255DC9600F04933 /* AnimationViewController.m in Sources */,
 				18EED27822521EFE00ACEF25 /* DataOBJ.m in Sources */,
 				18E42D06225443FF00BF92A2 /* TableviewController.m in Sources */,
 			);

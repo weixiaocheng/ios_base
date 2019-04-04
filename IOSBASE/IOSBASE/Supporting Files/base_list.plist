@@ -55,6 +55,12 @@
 				<key>controller_name</key>
 				<string>wkwebviewControllerView</string>
 			</dict>
+			<dict>
+				<key>name</key>
+				<string>动画</string>
+				<key>controller_name</key>
+				<string>AnimationViewController</string>
+			</dict>
 		</array>
 	</dict>
 </array>
