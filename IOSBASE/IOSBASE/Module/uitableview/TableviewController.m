@@ -86,13 +86,26 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"idCell"];
 //        设置字体大小
         cell.textLabel.font = [UIFont systemFontOfSize:15];
+        /*自定义的 cell 尽量包含所有的样式 调用的时候 只有type 的区别 这样也会减少卡顿的*/
     }
 //    设置文字验证 随机 . 好玩
     cell.textLabel.textColor = RandColor;
     cell.textLabel.text = [NSString stringWithFormat:@"index_section: %ld, index_row: %ld",indexPath.section,(long)indexPath.row];
+    BOOL canload = !tableView.dragging&&tableView.decelerating;
+    if (canload) {
+        NSLog(@"加载图片");
+    }
     return cell;
 }
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    /*return UITableViewAutomaticDimension; // 少量情况下可以使用这个*/
+    /*
+     个人理解在创建这个对象的时候 就计算 高度 这样会好很多
+     */
+    return 44;
+}
 
 @end

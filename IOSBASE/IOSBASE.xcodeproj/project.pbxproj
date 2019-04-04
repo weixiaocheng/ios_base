@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		186129FE22559BB800C6B3E7 /* ColletionviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186129FD22559BB800C6B3E7 /* ColletionviewController.m */; };
 		18CDE2A7225305BF0000F7B2 /* ButtonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDE2A6225305BF0000F7B2 /* ButtonController.m */; };
 		18CDE2AA225306D70000F7B2 /* CommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDE2A9225306D70000F7B2 /* CommonTools.m */; };
 		18E42CFE22543E2E00BF92A2 /* BarItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E42CFD22543E2E00BF92A2 /* BarItemController.m */; };
@@ -48,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		127FF3DB5BEF57D3F200943C /* libPods-IOSBASEUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IOSBASEUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		186129FC22559BB800C6B3E7 /* ColletionviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColletionviewController.h; sourceTree = "<group>"; };
+		186129FD22559BB800C6B3E7 /* ColletionviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColletionviewController.m; sourceTree = "<group>"; };
 		18BC03C82252F406005355D9 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		18BC03C92252F581005355D9 /* BaseSetHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseSetHeader.h; sourceTree = "<group>"; };
 		18CDE2A5225305BF0000F7B2 /* ButtonController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonController.h; sourceTree = "<group>"; };
@@ -120,6 +123,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		186129FB22559BA800C6B3E7 /* UICollectview */ = {
+			isa = PBXGroup;
+			children = (
+				186129FC22559BB800C6B3E7 /* ColletionviewController.h */,
+				186129FD22559BB800C6B3E7 /* ColletionviewController.m */,
+			);
+			path = UICollectview;
+			sourceTree = "<group>";
+		};
 		18BC03C72252F326005355D9 /* Define */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +246,7 @@
 		18EED25F22520A9000ACEF25 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				186129FB22559BA800C6B3E7 /* UICollectview */,
 				18E42D03225443D400BF92A2 /* uitableview */,
 				18E42CFB22543E1500BF92A2 /* UIBarItem */,
 				18CDE2A4225305AB0000F7B2 /* UIButton */,
@@ -574,6 +587,7 @@
 			files = (
 				18EED2392252020800ACEF25 /* main.m in Sources */,
 				18EED27522521A4700ACEF25 /* ViewManager.m in Sources */,
+				186129FE22559BB800C6B3E7 /* ColletionviewController.m in Sources */,
 				18CDE2AA225306D70000F7B2 /* CommonTools.m in Sources */,
 				18EED22B2252020800ACEF25 /* AppDelegate.m in Sources */,
 				18E42CFE22543E2E00BF92A2 /* BarItemController.m in Sources */,
