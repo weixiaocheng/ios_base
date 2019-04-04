@@ -47,6 +47,7 @@ WaterFlowLayoutDelegate
 @property (nonatomic, strong) UICollectionView *collectionview;
 @property (nonatomic, assign) NSInteger totalCount;
 @property (nonatomic, strong) NSMutableArray *heightArray;
+@property (nonatomic, strong) NSMutableArray *allcolor;
 @end
 
 @implementation ColletionviewController
@@ -82,6 +83,8 @@ WaterFlowLayoutDelegate
         [_collectionview registerClass:[UICollectionCell class] forCellWithReuseIdentifier:@"idcell"];
 
         _collectionview.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+
+            weakSelf.heightArray = nil;
              weakSelf.totalCount = 10;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.35 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [weakSelf.collectionview.mj_header endRefreshing];
@@ -119,6 +122,7 @@ WaterFlowLayoutDelegate
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"idcell" forIndexPath:indexPath];
+
     cell.contentView.backgroundColor = RandColor;
     cell.label.text = [NSString stringWithFormat:@" %ld x %ld", indexPath.section, indexPath.row];
    
@@ -136,7 +140,9 @@ WaterFlowLayoutDelegate
     if (height < 100) {
         height = 100;
     }
+    
     [self.heightArray addObject:[NSNumber numberWithFloat:height]];
+    
     return height;
 }
 
