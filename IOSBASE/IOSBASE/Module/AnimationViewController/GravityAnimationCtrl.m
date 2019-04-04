@@ -16,17 +16,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(15, 100, 100, 40);
+    btn.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:btn];
+    [btn addTarget:self action:@selector(action:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)action: (UIButton *)btn
+{
+    //    [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.2 initialSpringVelocity:4 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+    //        CGPoint tempPoint = btn.center;
+    //        tempPoint.y += 10;
+    //        btn.center=tempPoint;
+    //    } completion:^(BOOL finished) {
+    //
+    //    }];
+    shakerAnimation(btn, 2, 20);
+    
 }
-*/
+
+// 重力弹跳动画效果
+void shakerAnimation(UIView *view ,NSTimeInterval duration,float height){
+    CAKeyframeAnimation * animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.translation.x"];
+    CGFloat currentTx = view.transform.ty;
+    animation.duration = duration;
+    animation.values = @[@(currentTx), @(currentTx + height), @(currentTx-height/3*2), @(currentTx + height/3*2), @(currentTx -height/3), @(currentTx + height/3), @(currentTx)];
+    animation.keyTimes = @[ @(0), @(0.225), @(0.425), @(0.6), @(0.75), @(0.875), @(1) ];
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    [view.layer addAnimation:animation forKey:@"kViewShakerAnimationKey"];
+}
+
+
 
 @end

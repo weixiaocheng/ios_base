@@ -1,36 +1,23 @@
 //
-//  ElasticAnimationCtrl.m
+//  DynamicViewController.m
 //  IOSBASE
 //
 //  Created by apple on 2019/4/4.
 //  Copyright © 2019 corzen. All rights reserved.
 //
 
-#import "ElasticAnimationCtrl.h"
+#import "DynamicViewController.h"
 
-@interface ElasticAnimationCtrl ()
+@interface DynamicViewController ()
 
 @end
 
-@implementation ElasticAnimationCtrl
+@implementation DynamicViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(15, 100, 100, 40);
-    btn.backgroundColor = RandColor;
-    [self.view addSubview:btn];
-    [btn addTarget:self action:@selector(action:) forControlEvents:UIControlEventTouchUpInside];
+    // Do any additional setup after loading the view.
 }
-
-- (void)action: (UIButton *)btn
-{
-
-    
-}
-
-
-
 
 /*
 #pragma mark - Navigation

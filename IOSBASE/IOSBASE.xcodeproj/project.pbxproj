@@ -12,6 +12,8 @@
 		183BB76C2255DFCC00F04933 /* GravityAnimationCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BB76B2255DFCC00F04933 /* GravityAnimationCtrl.m */; };
 		183BB76F2255DFDB00F04933 /* ElasticAnimationCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BB76E2255DFDB00F04933 /* ElasticAnimationCtrl.m */; };
 		183BB7722255E0D400F04933 /* TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BB7712255E0D400F04933 /* TableView.m */; };
+		183BB7742255EF2C00F04933 /* push.sh in Resources */ = {isa = PBXBuildFile; fileRef = 183BB7732255EF2B00F04933 /* push.sh */; };
+		183BB7772255F40A00F04933 /* DynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BB7762255F40A00F04933 /* DynamicViewController.m */; };
 		186129FE22559BB800C6B3E7 /* ColletionviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186129FD22559BB800C6B3E7 /* ColletionviewController.m */; };
 		18612A012255A53400C6B3E7 /* WaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18612A002255A53400C6B3E7 /* WaterFlowLayout.m */; };
 		18612A052255B8AD00C6B3E7 /* WebviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18612A042255B8AD00C6B3E7 /* WebviewController.m */; };
@@ -67,6 +69,9 @@
 		183BB76E2255DFDB00F04933 /* ElasticAnimationCtrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ElasticAnimationCtrl.m; sourceTree = "<group>"; };
 		183BB7702255E0D400F04933 /* TableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableView.h; sourceTree = "<group>"; };
 		183BB7712255E0D400F04933 /* TableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableView.m; sourceTree = "<group>"; };
+		183BB7732255EF2B00F04933 /* push.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = push.sh; sourceTree = SOURCE_ROOT; };
+		183BB7752255F40A00F04933 /* DynamicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicViewController.h; sourceTree = "<group>"; };
+		183BB7762255F40A00F04933 /* DynamicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicViewController.m; sourceTree = "<group>"; };
 		186129FC22559BB800C6B3E7 /* ColletionviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColletionviewController.h; sourceTree = "<group>"; };
 		186129FD22559BB800C6B3E7 /* ColletionviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColletionviewController.m; sourceTree = "<group>"; };
 		186129FF2255A53400C6B3E7 /* WaterFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaterFlowLayout.h; sourceTree = "<group>"; };
@@ -155,6 +160,8 @@
 				183BB76E2255DFDB00F04933 /* ElasticAnimationCtrl.m */,
 				183BB76A2255DFCC00F04933 /* GravityAnimationCtrl.h */,
 				183BB76B2255DFCC00F04933 /* GravityAnimationCtrl.m */,
+				183BB7752255F40A00F04933 /* DynamicViewController.h */,
+				183BB7762255F40A00F04933 /* DynamicViewController.m */,
 			);
 			path = AnimationViewController;
 			sourceTree = "<group>";
@@ -348,6 +355,7 @@
 		18EED26522520AE900ACEF25 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				183BB7732255EF2B00F04933 /* push.sh */,
 				18612A062255D3E900C6B3E7 /* oc_html.html */,
 				18EED2322252020800ACEF25 /* Assets.xcassets */,
 				18E42D01225440DE00BF92A2 /* 123.png */,
@@ -521,6 +529,7 @@
 			files = (
 				18EED2362252020800ACEF25 /* LaunchScreen.storyboard in Resources */,
 				18E42D02225440DE00BF92A2 /* 123.png in Resources */,
+				183BB7742255EF2C00F04933 /* push.sh in Resources */,
 				18E42D00225440D400BF92A2 /* dog.gif in Resources */,
 				18612A072255D3E900C6B3E7 /* oc_html.html in Resources */,
 				18EED2332252020800ACEF25 /* Assets.xcassets in Resources */,
@@ -646,6 +655,7 @@
 				18EED27522521A4700ACEF25 /* ViewManager.m in Sources */,
 				186129FE22559BB800C6B3E7 /* ColletionviewController.m in Sources */,
 				18CDE2AA225306D70000F7B2 /* CommonTools.m in Sources */,
+				183BB7772255F40A00F04933 /* DynamicViewController.m in Sources */,
 				18EED22B2252020800ACEF25 /* AppDelegate.m in Sources */,
 				18E42CFE22543E2E00BF92A2 /* BarItemController.m in Sources */,
 				18CDE2A7225305BF0000F7B2 /* ButtonController.m in Sources */,

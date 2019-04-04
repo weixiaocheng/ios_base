@@ -31,6 +31,7 @@
     dataList = @[
   @{@"name": @"重力动画", @"className" : @"GravityAnimationCtrl"},
   @{@"name": @"弹力动画", @"className" : @"ElasticAnimationCtrl"},
+  @{@"name": @"物理动画", @"className" : @"DynamicViewController"}
                  ];
 }
 
