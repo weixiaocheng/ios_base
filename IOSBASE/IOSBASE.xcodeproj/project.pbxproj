@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		186129FE22559BB800C6B3E7 /* ColletionviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186129FD22559BB800C6B3E7 /* ColletionviewController.m */; };
 		18612A012255A53400C6B3E7 /* WaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18612A002255A53400C6B3E7 /* WaterFlowLayout.m */; };
+		18612A052255B8AD00C6B3E7 /* WebviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18612A042255B8AD00C6B3E7 /* WebviewController.m */; };
+		18612A072255D3E900C6B3E7 /* oc_html.html in Resources */ = {isa = PBXBuildFile; fileRef = 18612A062255D3E900C6B3E7 /* oc_html.html */; };
 		18CDE2A7225305BF0000F7B2 /* ButtonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDE2A6225305BF0000F7B2 /* ButtonController.m */; };
 		18CDE2AA225306D70000F7B2 /* CommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDE2A9225306D70000F7B2 /* CommonTools.m */; };
 		18E42CFE22543E2E00BF92A2 /* BarItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E42CFD22543E2E00BF92A2 /* BarItemController.m */; };
-		18E42D00225440D400BF92A2 /* 970DFED771023CDF0E9428A12A9FECF3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18E42CFF225440D400BF92A2 /* 970DFED771023CDF0E9428A12A9FECF3.gif */; };
+		18E42D00225440D400BF92A2 /* dog.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18E42CFF225440D400BF92A2 /* dog.gif */; };
 		18E42D02225440DE00BF92A2 /* 123.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E42D01225440DE00BF92A2 /* 123.png */; };
 		18E42D06225443FF00BF92A2 /* TableviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E42D05225443FF00BF92A2 /* TableviewController.m */; };
 		18EED22B2252020800ACEF25 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EED22A2252020800ACEF25 /* AppDelegate.m */; };
@@ -54,6 +56,9 @@
 		186129FD22559BB800C6B3E7 /* ColletionviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColletionviewController.m; sourceTree = "<group>"; };
 		186129FF2255A53400C6B3E7 /* WaterFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaterFlowLayout.h; sourceTree = "<group>"; };
 		18612A002255A53400C6B3E7 /* WaterFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WaterFlowLayout.m; sourceTree = "<group>"; };
+		18612A032255B8AD00C6B3E7 /* WebviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebviewController.h; sourceTree = "<group>"; };
+		18612A042255B8AD00C6B3E7 /* WebviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebviewController.m; sourceTree = "<group>"; };
+		18612A062255D3E900C6B3E7 /* oc_html.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = oc_html.html; sourceTree = "<group>"; };
 		18BC03C82252F406005355D9 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		18BC03C92252F581005355D9 /* BaseSetHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseSetHeader.h; sourceTree = "<group>"; };
 		18CDE2A5225305BF0000F7B2 /* ButtonController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonController.h; sourceTree = "<group>"; };
@@ -62,7 +67,7 @@
 		18CDE2A9225306D70000F7B2 /* CommonTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonTools.m; sourceTree = "<group>"; };
 		18E42CFC22543E2E00BF92A2 /* BarItemController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarItemController.h; sourceTree = "<group>"; };
 		18E42CFD22543E2E00BF92A2 /* BarItemController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarItemController.m; sourceTree = "<group>"; };
-		18E42CFF225440D400BF92A2 /* 970DFED771023CDF0E9428A12A9FECF3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 970DFED771023CDF0E9428A12A9FECF3.gif; sourceTree = "<group>"; };
+		18E42CFF225440D400BF92A2 /* dog.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = dog.gif; sourceTree = "<group>"; };
 		18E42D01225440DE00BF92A2 /* 123.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 123.png; sourceTree = "<group>"; };
 		18E42D04225443FF00BF92A2 /* TableviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableviewController.h; sourceTree = "<group>"; };
 		18E42D05225443FF00BF92A2 /* TableviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableviewController.m; sourceTree = "<group>"; };
@@ -135,6 +140,15 @@
 				18612A002255A53400C6B3E7 /* WaterFlowLayout.m */,
 			);
 			path = UICollectview;
+			sourceTree = "<group>";
+		};
+		18612A022255B89E00C6B3E7 /* UIwebviewController */ = {
+			isa = PBXGroup;
+			children = (
+				18612A032255B8AD00C6B3E7 /* WebviewController.h */,
+				18612A042255B8AD00C6B3E7 /* WebviewController.m */,
+			);
+			path = UIwebviewController;
 			sourceTree = "<group>";
 		};
 		18BC03C72252F326005355D9 /* Define */ = {
@@ -251,6 +265,7 @@
 		18EED25F22520A9000ACEF25 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				18612A022255B89E00C6B3E7 /* UIwebviewController */,
 				186129FB22559BA800C6B3E7 /* UICollectview */,
 				18E42D03225443D400BF92A2 /* uitableview */,
 				18E42CFB22543E1500BF92A2 /* UIBarItem */,
@@ -300,9 +315,10 @@
 		18EED26522520AE900ACEF25 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				18612A062255D3E900C6B3E7 /* oc_html.html */,
 				18EED2322252020800ACEF25 /* Assets.xcassets */,
 				18E42D01225440DE00BF92A2 /* 123.png */,
-				18E42CFF225440D400BF92A2 /* 970DFED771023CDF0E9428A12A9FECF3.gif */,
+				18E42CFF225440D400BF92A2 /* dog.gif */,
 				18EED2342252020800ACEF25 /* LaunchScreen.storyboard */,
 				18EED2372252020800ACEF25 /* Info.plist */,
 				18EED2382252020800ACEF25 /* main.m */,
@@ -472,7 +488,8 @@
 			files = (
 				18EED2362252020800ACEF25 /* LaunchScreen.storyboard in Resources */,
 				18E42D02225440DE00BF92A2 /* 123.png in Resources */,
-				18E42D00225440D400BF92A2 /* 970DFED771023CDF0E9428A12A9FECF3.gif in Resources */,
+				18E42D00225440D400BF92A2 /* dog.gif in Resources */,
+				18612A072255D3E900C6B3E7 /* oc_html.html in Resources */,
 				18EED2332252020800ACEF25 /* Assets.xcassets in Resources */,
 				18EED25C22520A0500ACEF25 /* base_list.plist in Resources */,
 			);
@@ -599,6 +616,7 @@
 				18E42CFE22543E2E00BF92A2 /* BarItemController.m in Sources */,
 				18CDE2A7225305BF0000F7B2 /* ButtonController.m in Sources */,
 				18EED272225217DB00ACEF25 /* ViewController.m in Sources */,
+				18612A052255B8AD00C6B3E7 /* WebviewController.m in Sources */,
 				18EED26822520B8500ACEF25 /* LabelViewController.m in Sources */,
 				18EED27822521EFE00ACEF25 /* DataOBJ.m in Sources */,
 				18E42D06225443FF00BF92A2 /* TableviewController.m in Sources */,

@@ -47,7 +47,7 @@
 				<key>name</key>
 				<string>UIwebView</string>
 				<key>controller_name</key>
-				<string>UIwebviewController</string>
+				<string>WebviewController</string>
 			</dict>
 			<dict>
 				<key>name</key>
