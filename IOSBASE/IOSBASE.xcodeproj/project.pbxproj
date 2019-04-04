@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		183BB7652255D8F700F04933 /* wkwebviewControllerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BB7642255D8F700F04933 /* wkwebviewControllerView.m */; };
 		186129FE22559BB800C6B3E7 /* ColletionviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186129FD22559BB800C6B3E7 /* ColletionviewController.m */; };
 		18612A012255A53400C6B3E7 /* WaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18612A002255A53400C6B3E7 /* WaterFlowLayout.m */; };
 		18612A052255B8AD00C6B3E7 /* WebviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18612A042255B8AD00C6B3E7 /* WebviewController.m */; };
@@ -52,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		127FF3DB5BEF57D3F200943C /* libPods-IOSBASEUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IOSBASEUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		183BB7632255D8F700F04933 /* wkwebviewControllerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wkwebviewControllerView.h; sourceTree = "<group>"; };
+		183BB7642255D8F700F04933 /* wkwebviewControllerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wkwebviewControllerView.m; sourceTree = "<group>"; };
 		186129FC22559BB800C6B3E7 /* ColletionviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColletionviewController.h; sourceTree = "<group>"; };
 		186129FD22559BB800C6B3E7 /* ColletionviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColletionviewController.m; sourceTree = "<group>"; };
 		186129FF2255A53400C6B3E7 /* WaterFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaterFlowLayout.h; sourceTree = "<group>"; };
@@ -147,6 +150,8 @@
 			children = (
 				18612A032255B8AD00C6B3E7 /* WebviewController.h */,
 				18612A042255B8AD00C6B3E7 /* WebviewController.m */,
+				183BB7632255D8F700F04933 /* wkwebviewControllerView.h */,
+				183BB7642255D8F700F04933 /* wkwebviewControllerView.m */,
 			);
 			path = UIwebviewController;
 			sourceTree = "<group>";
@@ -617,6 +622,7 @@
 				18CDE2A7225305BF0000F7B2 /* ButtonController.m in Sources */,
 				18EED272225217DB00ACEF25 /* ViewController.m in Sources */,
 				18612A052255B8AD00C6B3E7 /* WebviewController.m in Sources */,
+				183BB7652255D8F700F04933 /* wkwebviewControllerView.m in Sources */,
 				18EED26822520B8500ACEF25 /* LabelViewController.m in Sources */,
 				18EED27822521EFE00ACEF25 /* DataOBJ.m in Sources */,
 				18E42D06225443FF00BF92A2 /* TableviewController.m in Sources */,

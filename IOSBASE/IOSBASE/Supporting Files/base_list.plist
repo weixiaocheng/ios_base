@@ -53,7 +53,7 @@
 				<key>name</key>
 				<string>WKWebView</string>
 				<key>controller_name</key>
-				<string>WKWebViewController</string>
+				<string>wkwebviewControllerView</string>
 			</dict>
 		</array>
 	</dict>
