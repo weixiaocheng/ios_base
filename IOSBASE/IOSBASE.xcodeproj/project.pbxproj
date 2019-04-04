@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18102BA02255F85E003B40BD /* DynamicDownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18102B9E2255F85E003B40BD /* DynamicDownViewController.m */; };
+		18102BA12255F85E003B40BD /* DynamicDownViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18102B9F2255F85E003B40BD /* DynamicDownViewController.xib */; };
 		183BB7652255D8F700F04933 /* wkwebviewControllerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BB7642255D8F700F04933 /* wkwebviewControllerView.m */; };
 		183BB7692255DC9600F04933 /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BB7682255DC9600F04933 /* AnimationViewController.m */; };
 		183BB76C2255DFCC00F04933 /* GravityAnimationCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BB76B2255DFCC00F04933 /* GravityAnimationCtrl.m */; };
@@ -59,6 +61,9 @@
 
 /* Begin PBXFileReference section */
 		127FF3DB5BEF57D3F200943C /* libPods-IOSBASEUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IOSBASEUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		18102B9D2255F85E003B40BD /* DynamicDownViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicDownViewController.h; sourceTree = "<group>"; };
+		18102B9E2255F85E003B40BD /* DynamicDownViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicDownViewController.m; sourceTree = "<group>"; };
+		18102B9F2255F85E003B40BD /* DynamicDownViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DynamicDownViewController.xib; sourceTree = "<group>"; };
 		183BB7632255D8F700F04933 /* wkwebviewControllerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wkwebviewControllerView.h; sourceTree = "<group>"; };
 		183BB7642255D8F700F04933 /* wkwebviewControllerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wkwebviewControllerView.m; sourceTree = "<group>"; };
 		183BB7672255DC9600F04933 /* AnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationViewController.h; sourceTree = "<group>"; };
@@ -164,6 +169,16 @@
 				183BB7762255F40A00F04933 /* DynamicViewController.m */,
 			);
 			path = AnimationViewController;
+			sourceTree = "<group>";
+		};
+		183BB7782255F5D000F04933 /* DynamicDownController */ = {
+			isa = PBXGroup;
+			children = (
+				18102B9D2255F85E003B40BD /* DynamicDownViewController.h */,
+				18102B9E2255F85E003B40BD /* DynamicDownViewController.m */,
+				18102B9F2255F85E003B40BD /* DynamicDownViewController.xib */,
+			);
+			path = DynamicDownController;
 			sourceTree = "<group>";
 		};
 		186129FB22559BA800C6B3E7 /* UICollectview */ = {
@@ -302,6 +317,7 @@
 		18EED25F22520A9000ACEF25 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				183BB7782255F5D000F04933 /* DynamicDownController */,
 				183BB7662255DC8B00F04933 /* AnimationViewController */,
 				18612A022255B89E00C6B3E7 /* UIwebviewController */,
 				186129FB22559BA800C6B3E7 /* UICollectview */,
@@ -529,6 +545,7 @@
 			files = (
 				18EED2362252020800ACEF25 /* LaunchScreen.storyboard in Resources */,
 				18E42D02225440DE00BF92A2 /* 123.png in Resources */,
+				18102BA12255F85E003B40BD /* DynamicDownViewController.xib in Resources */,
 				183BB7742255EF2C00F04933 /* push.sh in Resources */,
 				18E42D00225440D400BF92A2 /* dog.gif in Resources */,
 				18612A072255D3E900C6B3E7 /* oc_html.html in Resources */,
@@ -663,6 +680,7 @@
 				18EED272225217DB00ACEF25 /* ViewController.m in Sources */,
 				18612A052255B8AD00C6B3E7 /* WebviewController.m in Sources */,
 				183BB7652255D8F700F04933 /* wkwebviewControllerView.m in Sources */,
+				18102BA02255F85E003B40BD /* DynamicDownViewController.m in Sources */,
 				18EED26822520B8500ACEF25 /* LabelViewController.m in Sources */,
 				183BB76C2255DFCC00F04933 /* GravityAnimationCtrl.m in Sources */,
 				183BB7692255DC9600F04933 /* AnimationViewController.m in Sources */,

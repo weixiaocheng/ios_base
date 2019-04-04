@@ -63,5 +63,18 @@
 			</dict>
 		</array>
 	</dict>
+	<dict>
+		<key>section_name</key>
+		<string>物理仿真</string>
+		<key>data_list</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>重力特效</string>
+				<key>controller_name</key>
+				<string>DynamicDownViewController</string>
+			</dict>
+		</array>
+	</dict>
 </array>
 </plist>

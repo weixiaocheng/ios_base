@@ -111,4 +111,10 @@ UITableViewDataSource
     [self.navigationController pushViewController:VCtrl animated:true];
 }
 
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    DataOBJ *data_obj = self.manager.data_soure[section];
+    return data_obj.section_name;
+}
+
 @end
