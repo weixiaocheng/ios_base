@@ -24,23 +24,17 @@
     self.gravity = [[UIGravityBehavior alloc] initWithItems:@[self.animatView]];
     self.gravity.magnitude = 1;
     //    [gravity setGravityDirection:CGVectorMake(-1, -1)]; // 手动设置x, y
-    [self.gravity setAngle:0.5]; // 设置斜率
-    
+//    [self.gravity setAngle:0.5]; // 设置斜率
 }
 
 - (IBAction)down:(UIButton *)sender {
-    self.animatView.frame = CGRectMake(40, 100, 100, 40);
+    self.animatView.frame = CGRectMake(40, 100, 40, 40);
     self.animatView.transform = CGAffineTransformMakeRotation(M_PI_4);
-    
-    
-    
     UICollisionBehavior *collision = [[UICollisionBehavior alloc] init];
     collision.collisionDelegate = self;
     [collision addItem:self.animatView];
     [collision setTranslatesReferenceBoundsIntoBoundary:YES];
-    
     [self.animator addBehavior:collision];
-    
     [self.animator addBehavior:self.gravity];
 }
 
@@ -57,10 +51,7 @@
 
 - (void)collisionBehavior:(UICollisionBehavior*)behavior endedContactForItem:(id <UIDynamicItem>)item withBoundaryIdentifier:(nullable id <NSCopying>)identifier
 {
-    NSLog(@"item : %@",item);
-    CGFloat angle = (float)(rand() % 100)/100;
-    NSLog(@"angle : %f", angle);
-    [self.gravity setAngle: angle];
+    NSLog(@"撞击了");
 }
 
 @end

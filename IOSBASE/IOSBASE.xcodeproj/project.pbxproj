@@ -20,6 +20,7 @@
 		18612A012255A53400C6B3E7 /* WaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18612A002255A53400C6B3E7 /* WaterFlowLayout.m */; };
 		18612A052255B8AD00C6B3E7 /* WebviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18612A042255B8AD00C6B3E7 /* WebviewController.m */; };
 		18612A072255D3E900C6B3E7 /* oc_html.html in Resources */ = {isa = PBXBuildFile; fileRef = 18612A062255D3E900C6B3E7 /* oc_html.html */; };
+		18655E77225AE18A00442378 /* DynamicElasticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18655E76225AE18A00442378 /* DynamicElasticViewController.m */; };
 		18CDE2A7225305BF0000F7B2 /* ButtonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDE2A6225305BF0000F7B2 /* ButtonController.m */; };
 		18CDE2AA225306D70000F7B2 /* CommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDE2A9225306D70000F7B2 /* CommonTools.m */; };
 		18E42CFE22543E2E00BF92A2 /* BarItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E42CFD22543E2E00BF92A2 /* BarItemController.m */; };
@@ -84,6 +85,8 @@
 		18612A032255B8AD00C6B3E7 /* WebviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebviewController.h; sourceTree = "<group>"; };
 		18612A042255B8AD00C6B3E7 /* WebviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebviewController.m; sourceTree = "<group>"; };
 		18612A062255D3E900C6B3E7 /* oc_html.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = oc_html.html; sourceTree = "<group>"; };
+		18655E75225AE18A00442378 /* DynamicElasticViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicElasticViewController.h; sourceTree = "<group>"; };
+		18655E76225AE18A00442378 /* DynamicElasticViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicElasticViewController.m; sourceTree = "<group>"; };
 		18BC03C82252F406005355D9 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		18BC03C92252F581005355D9 /* BaseSetHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseSetHeader.h; sourceTree = "<group>"; };
 		18CDE2A5225305BF0000F7B2 /* ButtonController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonController.h; sourceTree = "<group>"; };
@@ -203,6 +206,15 @@
 			path = UIwebviewController;
 			sourceTree = "<group>";
 		};
+		18655E74225AE17D00442378 /* DynamicElasticViewController */ = {
+			isa = PBXGroup;
+			children = (
+				18655E75225AE18A00442378 /* DynamicElasticViewController.h */,
+				18655E76225AE18A00442378 /* DynamicElasticViewController.m */,
+			);
+			path = DynamicElasticViewController;
+			sourceTree = "<group>";
+		};
 		18BC03C72252F326005355D9 /* Define */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +329,7 @@
 		18EED25F22520A9000ACEF25 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				18655E74225AE17D00442378 /* DynamicElasticViewController */,
 				183BB7782255F5D000F04933 /* DynamicDownController */,
 				183BB7662255DC8B00F04933 /* AnimationViewController */,
 				18612A022255B89E00C6B3E7 /* UIwebviewController */,
@@ -686,6 +699,7 @@
 				183BB7692255DC9600F04933 /* AnimationViewController.m in Sources */,
 				18EED27822521EFE00ACEF25 /* DataOBJ.m in Sources */,
 				18E42D06225443FF00BF92A2 /* TableviewController.m in Sources */,
+				18655E77225AE18A00442378 /* DynamicElasticViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

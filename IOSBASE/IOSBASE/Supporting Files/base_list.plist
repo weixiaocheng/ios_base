@@ -74,6 +74,12 @@
 				<key>controller_name</key>
 				<string>DynamicDownViewController</string>
 			</dict>
+			<dict>
+				<key>name</key>
+				<string>弹力特效</string>
+				<key>controller_name</key>
+				<string>DynamicElasticViewController</string>
+			</dict>
 		</array>
 	</dict>
 </array>
