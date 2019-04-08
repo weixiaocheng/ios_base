@@ -21,6 +21,7 @@
 		18612A052255B8AD00C6B3E7 /* WebviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18612A042255B8AD00C6B3E7 /* WebviewController.m */; };
 		18612A072255D3E900C6B3E7 /* oc_html.html in Resources */ = {isa = PBXBuildFile; fileRef = 18612A062255D3E900C6B3E7 /* oc_html.html */; };
 		18655E77225AE18A00442378 /* DynamicElasticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18655E76225AE18A00442378 /* DynamicElasticViewController.m */; };
+		18655E7B225AFFE000442378 /* CABasicAnimationVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18655E7A225AFFE000442378 /* CABasicAnimationVController.m */; };
 		18CDE2A7225305BF0000F7B2 /* ButtonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDE2A6225305BF0000F7B2 /* ButtonController.m */; };
 		18CDE2AA225306D70000F7B2 /* CommonTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CDE2A9225306D70000F7B2 /* CommonTools.m */; };
 		18E42CFE22543E2E00BF92A2 /* BarItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E42CFD22543E2E00BF92A2 /* BarItemController.m */; };
@@ -87,6 +88,8 @@
 		18612A062255D3E900C6B3E7 /* oc_html.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = oc_html.html; sourceTree = "<group>"; };
 		18655E75225AE18A00442378 /* DynamicElasticViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicElasticViewController.h; sourceTree = "<group>"; };
 		18655E76225AE18A00442378 /* DynamicElasticViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicElasticViewController.m; sourceTree = "<group>"; };
+		18655E79225AFFE000442378 /* CABasicAnimationVController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CABasicAnimationVController.h; sourceTree = "<group>"; };
+		18655E7A225AFFE000442378 /* CABasicAnimationVController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CABasicAnimationVController.m; sourceTree = "<group>"; };
 		18BC03C82252F406005355D9 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		18BC03C92252F581005355D9 /* BaseSetHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseSetHeader.h; sourceTree = "<group>"; };
 		18CDE2A5225305BF0000F7B2 /* ButtonController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonController.h; sourceTree = "<group>"; };
@@ -215,6 +218,15 @@
 			path = DynamicElasticViewController;
 			sourceTree = "<group>";
 		};
+		18655E78225AFFD400442378 /* CABasicAnimationVController */ = {
+			isa = PBXGroup;
+			children = (
+				18655E79225AFFE000442378 /* CABasicAnimationVController.h */,
+				18655E7A225AFFE000442378 /* CABasicAnimationVController.m */,
+			);
+			path = CABasicAnimationVController;
+			sourceTree = "<group>";
+		};
 		18BC03C72252F326005355D9 /* Define */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +341,7 @@
 		18EED25F22520A9000ACEF25 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				18655E78225AFFD400442378 /* CABasicAnimationVController */,
 				18655E74225AE17D00442378 /* DynamicElasticViewController */,
 				183BB7782255F5D000F04933 /* DynamicDownController */,
 				183BB7662255DC8B00F04933 /* AnimationViewController */,
@@ -685,6 +698,7 @@
 				18EED27522521A4700ACEF25 /* ViewManager.m in Sources */,
 				186129FE22559BB800C6B3E7 /* ColletionviewController.m in Sources */,
 				18CDE2AA225306D70000F7B2 /* CommonTools.m in Sources */,
+				18655E7B225AFFE000442378 /* CABasicAnimationVController.m in Sources */,
 				183BB7772255F40A00F04933 /* DynamicViewController.m in Sources */,
 				18EED22B2252020800ACEF25 /* AppDelegate.m in Sources */,
 				18E42CFE22543E2E00BF92A2 /* BarItemController.m in Sources */,

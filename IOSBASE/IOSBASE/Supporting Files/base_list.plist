@@ -82,5 +82,36 @@
 			</dict>
 		</array>
 	</dict>
+	<dict>
+		<key>section_name</key>
+		<string>动画</string>
+		<key>data_list</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>CABasicAnimation 基本动画</string>
+				<key>controller_name</key>
+				<string>CABasicAnimationVController</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>UIBezierPath 贝塞尔曲线</string>
+				<key>controller_name</key>
+				<string>BezierPath ViewController</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>CAAnimationGroup 动画组</string>
+				<key>controller_name</key>
+				<string>AnimationGroupViewController</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>CATransition 转场动画</string>
+				<key>controller_name</key>
+				<string>TransitionViewController</string>
+			</dict>
+		</array>
+	</dict>
 </array>
 </plist>
