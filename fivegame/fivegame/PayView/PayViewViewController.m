@@ -8,15 +8,18 @@
 
 #import "PayViewViewController.h"
 #import "PayManager.h"
+#import "../../fivegame/PPPlay/Connect/PPConnectManager.h"
+
 #define gridCount 15
 
-@interface PayViewViewController ()
+@interface PayViewViewController ()<PPConnectManagerDelegate>
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, assign) CGFloat gridWidth ;
 @property (nonatomic, strong) PayManager *manager;
 
-
-
+@property (nonatomic, strong) UIButton *adServeBtn;
+@property (nonatomic, strong) UIButton *searchAdBtn;
+@property (nonatomic, strong) PPConnectManager *connectManager;
 @end
 
 @implementation PayViewViewController
@@ -25,6 +28,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.manager = [[PayManager alloc] init];
+    self.connectManager = [PPConnectManager shareInstance];
+    self.connectManager.delegate = self;
     [self setUpView];
 }
 
@@ -46,7 +51,19 @@
     
     [self.view addSubview:beganBtn];
     
-   
+    self.adServeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.adServeBtn setTitle:@"发送邀请" forState:UIControlStateNormal];
+    [self.view addSubview:self.adServeBtn];
+    self.adServeBtn.frame = CGRectMake(100 , CGRectGetMaxY(beganBtn.frame) + 20, 100, 40);
+    self.adServeBtn.backgroundColor = RGB16(0x999999);
+    [self.adServeBtn addTarget:self.connectManager action:@selector(startServe) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.searchAdBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.searchAdBtn setTitle:@"接受邀请" forState:UIControlStateNormal];
+    [self.view addSubview:self.searchAdBtn];
+    self.searchAdBtn.frame = CGRectMake(CGRectGetMaxX(self.adServeBtn.frame) + 20,  CGRectGetMaxY(beganBtn.frame) + 20, 100, 40);
+    self.searchAdBtn.backgroundColor = RGB16(0x999999);
+    [self.searchAdBtn addTarget:self.connectManager action:@selector(startClien) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)tapaction: (UITapGestureRecognizer *)tap
@@ -174,6 +191,12 @@
     for (CAShapeLayer *layer in layerArr) {
         [layer removeFromSuperlayer];
     }
+}
+
+#pragma mark -- PPConnectManagerDelegate
+- (void)showPPAlterCtrl:(UIAlertController *)alertCtrl
+{
+    [self presentViewController:alertCtrl animated:true completion:nil];
 }
 
 @end
