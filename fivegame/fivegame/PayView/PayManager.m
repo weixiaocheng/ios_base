@@ -59,11 +59,11 @@
         NSLog(@"wining");
         _isWin = true;
 
-    }else if ([self checkSineAxis:piceObj]) {
+    }else if ([self checkSineAxis:piceObj WithA:[self fromX:piceObj.point.x andY:piceObj.point.y tosinOrcos:1]]) {
         NSLog(@"wining");
         _isWin = true;
         
-    }else if ([self checkCosAxis:piceObj]) {
+    }else if ([self checkCosAxis:piceObj WithA:[self fromX:piceObj.point.x andY:piceObj.point.y tosinOrcos:-1]]) {
         NSLog(@"wining");
         _isWin = true;
         
@@ -77,7 +77,7 @@
 {
     NSInteger count = 0;
     // 第一轮取值
-    for (int i = piceObj.point.x - 4; i < piceObj.point.x + 4; i ++) {
+    for (int i = piceObj.point.x - 4; i <= piceObj.point.x + 4; i ++) {
         if (i < 0) {
             continue;
         }
@@ -85,6 +85,7 @@
         PieceOBJ *piece_obj = self.alldownPieces[idKey];
         if (!piece_obj) {
             // 为空继续跳过
+            count = 0;
             continue;
         }
         
@@ -108,7 +109,7 @@
 {
     NSInteger count = 0;
     // 第一轮取值
-    for (int i = piceObj.point.y - 4; i < piceObj.point.y + 4; i ++) {
+    for (int i = piceObj.point.y - 4; i <= piceObj.point.y + 4; i ++) {
         if (i < 0) {
             continue;
         }
@@ -116,6 +117,7 @@
         PieceOBJ *piece_obj = self.alldownPieces[idKey];
         if (!piece_obj) {
             // 为空继续跳过
+            count = 0;
             continue;
         }
         
@@ -134,18 +136,20 @@
 }
 
 // 关于斜率为1 的判断
-- (BOOL)checkSineAxis:(PieceOBJ *)piceObj
+- (BOOL)checkSineAxis:(PieceOBJ *)piceObj WithA: (NSInteger )a
 {
     NSInteger count = 0;
     // 第一轮取值
-    for (int i = piceObj.point.x - 4; i < piceObj.point.x + 4; i ++) {
+    for (int i = piceObj.point.x - 4; i <= piceObj.point.x + 4; i ++) {
         if (i < 0) {
+            count = 0;
             continue;
         }
-        NSString *idKey = [NSString stringWithFormat:@"%2d%2.0f", i,piceObj.point.y - 4 + i];
+        NSString *idKey = [NSString stringWithFormat:@"%2d%2.0ld", i,(long)[self getYFromX:i andK:a]];
         PieceOBJ *piece_obj = self.alldownPieces[idKey];
         if (!piece_obj) {
             // 为空继续跳过
+            count = 0;
             continue;
         }
         
@@ -163,22 +167,23 @@
     return false;
 }
 
-// 关于斜率为1 的判断
-- (BOOL)checkCosAxis:(PieceOBJ *)piceObj
+// 关于斜率为-1 的判断
+- (BOOL)checkCosAxis:(PieceOBJ *)piceObj WithA: (NSInteger )a
 {
     NSInteger count = 0;
     // 第一轮取值
-    for (int i = piceObj.point.y - 4; i < piceObj.point.y + 4; i ++) {
+    for (int i = piceObj.point.x - 4; i <= piceObj.point.x + 4; i ++) {
         if (i < 0) {
             continue;
         }
-        NSString *idKey = [NSString stringWithFormat:@"%2.0f%2d", piceObj.point.x + 4 - i, i ];
+        NSString *idKey = [NSString stringWithFormat:@"%2d%2.0ld", i,(long)[self getYFromX:-i andK:a]];
         PieceOBJ *piece_obj = self.alldownPieces[idKey];
         if (!piece_obj) {
             // 为空继续跳过
+            count = 0;
             continue;
         }
-        
+
         if (piece_obj.isBlack == piceObj.isBlack) {
             count ++;
         }else{
@@ -192,5 +197,21 @@
     }
     return false;
 }
+
+// 获取平移量 a
+- (NSInteger)fromX: (NSInteger)x andY: (NSInteger)y tosinOrcos: (NSInteger)k
+{
+    if (k == 1) {
+        return y + x;
+    }else{
+        return y - x;
+    }
+}
+
+- (NSInteger)getYFromX: (NSInteger )x andK: (NSInteger)k
+{
+    return k - x;
+}
+
 
 @end

@@ -150,6 +150,7 @@
     
     UIAlertAction *onceAngen = [UIAlertAction actionWithTitle:@"再战一局" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"点击了再来");
+        [self beganOnce];
     }];
     
     [alertCtrl addAction:sure];
