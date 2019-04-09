@@ -19,6 +19,11 @@
 @interface PayManager : NSObject
 @property (nonatomic, strong) NSMutableDictionary *alldownPieces;
 @property (nonatomic, assign) BOOL isBlack; /**< 当前为黑子? 默认白子 先走*/
+
+@property (nonatomic, assign) BOOL isWin;
+
+// 判断当前 局面状态
+- (BOOL)checkIsSuccessWithPieceObj: (PieceOBJ *)piceObj;
 @end
 
 

@@ -27,19 +27,19 @@
 }
 
 // 判断当前 局面状态
-- (void)checkIsSuccessWithPieceObj: (PieceOBJ *)piceObj
+- (BOOL)checkIsSuccessWithPieceObj: (PieceOBJ *)piceObj
 {
     // 判断是否已经存在 棋子
     if (self.alldownPieces[piceObj.idkey]) {
         NSLog(@"已经存在一个棋子了")
-        return;
+        return false;
     }
     
     // 添加 新的棋子
     [self.alldownPieces setValue:piceObj forKey:piceObj.idkey];
     
     if (self.alldownPieces.count < 9) {
-        return;
+        return true;
     }
     
     // 开始判断 是否赢了
@@ -53,21 +53,23 @@
      */
     if ([self checkXAxis:piceObj]) {
         NSLog(@"wining");
-        return;
-    }
-    if ([self checkYAxis:piceObj]) {
+        _isWin = true;
+
+    }else if ([self checkYAxis:piceObj]) {
         NSLog(@"wining");
-        return;
-    }
-    if ([self checkSineAxis:piceObj]) {
+        _isWin = true;
+
+    }else if ([self checkSineAxis:piceObj]) {
         NSLog(@"wining");
-        return;
-    }
-    if ([self checkCosAxis:piceObj]) {
+        _isWin = true;
+        
+    }else if ([self checkCosAxis:piceObj]) {
         NSLog(@"wining");
-        return;
+        _isWin = true;
+        
     }
     
+    return true;
 }
 
 // 关于x轴的判断
@@ -88,6 +90,8 @@
         
         if (piece_obj.isBlack == piceObj.isBlack) {
             count ++;
+        }else{
+            count = 0;
         }
         
         if (count >=5) {
@@ -117,6 +121,8 @@
         
         if (piece_obj.isBlack == piceObj.isBlack) {
             count ++;
+        }else{
+            count = 0;
         }
         
         if (count >=5) {
@@ -145,6 +151,8 @@
         
         if (piece_obj.isBlack == piceObj.isBlack) {
             count ++;
+        }else{
+            count = 0;
         }
         
         if (count >=5) {
@@ -173,6 +181,8 @@
         
         if (piece_obj.isBlack == piceObj.isBlack) {
             count ++;
+        }else{
+            count = 0;
         }
         
         if (count >=5) {

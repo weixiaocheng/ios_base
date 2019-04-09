@@ -7,13 +7,13 @@
 //
 
 #import "PayViewViewController.h"
-
+#import "PayManager.h"
 #define gridCount 15
 
 @interface PayViewViewController ()
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, assign) CGFloat gridWidth ;
-
+@property (nonatomic, strong) PayManager *manager;
 @end
 
 @implementation PayViewViewController
@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.manager = [[PayManager alloc] init];
     [self setUpView];
     
 }
@@ -40,17 +41,39 @@
 - (void)tapaction: (UITapGestureRecognizer *)tap
 {
     CGPoint point = [tap locationInView:self.imageView];
-    NSLog(@"\npoint : %@", NSStringFromCGPoint(point));
+//    NSLog(@"\npoint : %@", NSStringFromCGPoint(point));
     NSInteger rol = (point.x - self.gridWidth * 0.5)/self.gridWidth;
     NSInteger cow = (point.y - self.gridWidth * 0.5)/self.gridWidth;
-    NSLog(@"\nrol : %ld \n cow: %ld", rol, cow);
+//    NSLog(@"\nrol : %ld \n cow: %ld", rol, cow);
     
     //转换成为对应的坐标点
     CGPoint arcPoint = CGPointZero;
     arcPoint.x = (rol + 0.5) * self.gridWidth;
     arcPoint.y = (cow + 0.5) * self.gridWidth;
     
-    [self addLayerFrame:CGRectMake(arcPoint.x + 2.5, arcPoint.y + 2.5, self.gridWidth - 5, self.gridWidth - 5) color:[UIColor whiteColor]];
+    PieceOBJ *piec_obj = [[PieceOBJ alloc] init];
+    piec_obj.isBlack = self.manager.isBlack;
+    piec_obj.point = CGPointMake(rol, cow);
+    
+    if ([self.manager checkIsSuccessWithPieceObj:piec_obj] == false) {
+        return;
+    }
+    
+   
+    
+    UIColor *color = [UIColor whiteColor];
+    if (self.manager.isBlack) {
+        color = [UIColor blackColor];
+    }
+    
+    [self addLayerFrame:CGRectMake(arcPoint.x + 2.5, arcPoint.y + 2.5, self.gridWidth - 5, self.gridWidth - 5) color:color];
+    
+    if (self.manager.isWin) {
+        [self someBoddyWinWithIsBlack:self.manager.isBlack];
+        return;
+    }
+    
+    self.manager.isBlack = !self.manager.isBlack;
     
 }
 
@@ -107,6 +130,24 @@
     [self.imageView.layer addSublayer:arcLayer];
 }
 
+
+- (void)someBoddyWinWithIsBlack: (BOOL)isBlack
+{
+    NSString *message = isBlack? @"黑子胜利✌️!" : @"白子胜利✌️!";
+    UIAlertController *alertCtrl = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"点击了确定");
+    }];
+    
+    UIAlertAction *onceAngen = [UIAlertAction actionWithTitle:@"再战一局" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"点击了再来");
+    }];
+    
+    [alertCtrl addAction:sure];
+    [alertCtrl addAction:onceAngen];
+    [self presentViewController:alertCtrl animated:true completion:nil];
+}
 
 
 @end
