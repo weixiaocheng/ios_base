@@ -17,6 +17,7 @@
 		18655F07225B267800442378 /* StartGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18655F05225B267800442378 /* StartGameViewController.xib */; };
 		18655F0B225B29BD00442378 /* PayViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18655F0A225B29BD00442378 /* PayViewViewController.m */; };
 		18655F10225B4EE800442378 /* PayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18655F0F225B4EE800442378 /* PayManager.m */; };
+		18D7179A225C6C89001D77D4 /* PPConnectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D71799225C6C89001D77D4 /* PPConnectManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		18655F0D225B2A2400442378 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		18655F0E225B4EE800442378 /* PayManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayManager.h; sourceTree = "<group>"; };
 		18655F0F225B4EE800442378 /* PayManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayManager.m; sourceTree = "<group>"; };
+		18D71798225C6C89001D77D4 /* PPConnectManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPConnectManager.h; sourceTree = "<group>"; };
+		18D71799225C6C89001D77D4 /* PPConnectManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPConnectManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +112,7 @@
 		18655ECC225B24A000442378 /* fivegame */ = {
 			isa = PBXGroup;
 			children = (
+				18D71796225C6C4B001D77D4 /* PPPlay */,
 				18655F0C225B2A0900442378 /* BaseSetHeader.h */,
 				18655F0D225B2A2400442378 /* PrefixHeader.pch */,
 				18655F08225B29A800442378 /* PayView */,
@@ -160,6 +164,23 @@
 				18655F0F225B4EE800442378 /* PayManager.m */,
 			);
 			path = PayView;
+			sourceTree = "<group>";
+		};
+		18D71796225C6C4B001D77D4 /* PPPlay */ = {
+			isa = PBXGroup;
+			children = (
+				18D71797225C6C58001D77D4 /* Connect */,
+			);
+			path = PPPlay;
+			sourceTree = "<group>";
+		};
+		18D71797225C6C58001D77D4 /* Connect */ = {
+			isa = PBXGroup;
+			children = (
+				18D71798225C6C89001D77D4 /* PPConnectManager.h */,
+				18D71799225C6C89001D77D4 /* PPConnectManager.m */,
+			);
+			path = Connect;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +315,7 @@
 			files = (
 				18655EDD225B24A000442378 /* main.m in Sources */,
 				18655ECF225B24A000442378 /* AppDelegate.m in Sources */,
+				18D7179A225C6C89001D77D4 /* PPConnectManager.m in Sources */,
 				18655F10225B4EE800442378 /* PayManager.m in Sources */,
 				18655F0B225B29BD00442378 /* PayViewViewController.m in Sources */,
 				18655F06225B267800442378 /* StartGameViewController.m in Sources */,
