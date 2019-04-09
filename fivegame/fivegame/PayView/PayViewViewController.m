@@ -36,6 +36,14 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapaction:)];
     [self.imageView addGestureRecognizer:tap];
     self.imageView.userInteractionEnabled = true;
+    
+    UIButton *beganBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    beganBtn.frame = CGRectMake(100, CGRectGetMaxY(self.imageView.frame) + 20, 100, 40);
+    [beganBtn addTarget:self action:@selector(beganOnce) forControlEvents:UIControlEventTouchUpInside];
+    [beganBtn setTitle:@"重新开局" forState:UIControlStateNormal];
+    
+    [self.view addSubview:beganBtn];
+    
 }
 
 - (void)tapaction: (UITapGestureRecognizer *)tap
@@ -149,5 +157,16 @@
     [self presentViewController:alertCtrl animated:true completion:nil];
 }
 
+- (void)beganOnce
+{
+    self.manager.isBlack = false;
+    self.manager.alldownPieces = nil;
+    self.manager.isWin = false;
+    NSMutableArray *layerArr = [self.imageView.layer.sublayers copy];
+    
+    for (CAShapeLayer *layer in layerArr) {
+        [layer removeFromSuperlayer];
+    }
+}
 
 @end
