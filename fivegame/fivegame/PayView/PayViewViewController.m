@@ -14,6 +14,9 @@
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, assign) CGFloat gridWidth ;
 @property (nonatomic, strong) PayManager *manager;
+
+
+
 @end
 
 @implementation PayViewViewController
@@ -23,7 +26,6 @@
     // Do any additional setup after loading the view.
     self.manager = [[PayManager alloc] init];
     [self setUpView];
-    
 }
 
 - (void)setUpView
@@ -44,6 +46,7 @@
     
     [self.view addSubview:beganBtn];
     
+   
 }
 
 - (void)tapaction: (UITapGestureRecognizer *)tap
@@ -72,8 +75,6 @@
         return;
     }
     
-   
-    
     UIColor *color = [UIColor whiteColor];
     if (self.manager.isBlack) {
         color = [UIColor blackColor];
@@ -87,7 +88,7 @@
     }
     
     self.manager.isBlack = !self.manager.isBlack;
-    
+   
 }
 
 // 画一个标准的棋盘
