@@ -22,6 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setUpView];
+    
 }
 
 - (void)setUpView
@@ -43,6 +44,14 @@
     NSInteger rol = (point.x - self.gridWidth * 0.5)/self.gridWidth;
     NSInteger cow = (point.y - self.gridWidth * 0.5)/self.gridWidth;
     NSLog(@"\nrol : %ld \n cow: %ld", rol, cow);
+    
+    //转换成为对应的坐标点
+    CGPoint arcPoint = CGPointZero;
+    arcPoint.x = (rol + 0.5) * self.gridWidth;
+    arcPoint.y = (cow + 0.5) * self.gridWidth;
+    
+    [self addLayerFrame:CGRectMake(arcPoint.x, arcPoint.y, self.gridWidth, self.gridWidth) color:[UIColor whiteColor]];
+    
 }
 
 // 画一个标准的棋盘
@@ -78,14 +87,26 @@
         CGContextAddLineToPoint(ctx, gridWidth * (gridCount - 1) ,  i * gridWidth + gridWidth);
     }
     
-//    CGContextSetFillColorWithColor(ctx, [UIColor orangeColor].CGColor);
     CGContextSetStrokeColorWithColor(ctx, [UIColor blackColor].CGColor);
-  
     CGContextStrokePath(ctx);
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
 }
+
+
+- (void)addLayerFrame: (CGRect )frame color: (UIColor *)color
+{
+    CAShapeLayer *arcLayer = [CAShapeLayer layer];
+    CGMutablePathRef path = CGPathCreateMutable();
+//    arcLayer.lineWidth = 2.0f;
+    arcLayer.fillColor = color.CGColor;
+    CGPathAddEllipseInRect(path, nil, frame);
+    arcLayer.path = path;
+    CGPathRelease(path);
+    [self.imageView.layer addSublayer:arcLayer];
+}
+
 
 
 @end
