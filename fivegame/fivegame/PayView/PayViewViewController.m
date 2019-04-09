@@ -50,7 +50,7 @@
     arcPoint.x = (rol + 0.5) * self.gridWidth;
     arcPoint.y = (cow + 0.5) * self.gridWidth;
     
-    [self addLayerFrame:CGRectMake(arcPoint.x, arcPoint.y, self.gridWidth, self.gridWidth) color:[UIColor whiteColor]];
+    [self addLayerFrame:CGRectMake(arcPoint.x + 2.5, arcPoint.y + 2.5, self.gridWidth - 5, self.gridWidth - 5) color:[UIColor whiteColor]];
     
 }
 
@@ -99,8 +99,8 @@
 {
     CAShapeLayer *arcLayer = [CAShapeLayer layer];
     CGMutablePathRef path = CGPathCreateMutable();
-//    arcLayer.lineWidth = 2.0f;
     arcLayer.fillColor = color.CGColor;
+    
     CGPathAddEllipseInRect(path, nil, frame);
     arcLayer.path = path;
     CGPathRelease(path);
