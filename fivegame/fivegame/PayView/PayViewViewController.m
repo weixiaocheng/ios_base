@@ -48,6 +48,11 @@
 
 - (void)tapaction: (UITapGestureRecognizer *)tap
 {
+    
+    if (self.manager.isWin) {
+        return;
+    }
+    
     CGPoint point = [tap locationInView:self.imageView];
 //    NSLog(@"\npoint : %@", NSStringFromCGPoint(point));
     NSInteger rol = (point.x - self.gridWidth * 0.5)/self.gridWidth;
