@@ -21,6 +21,8 @@
 @property (nonatomic, assign) BOOL isBlack; /**< 当前为黑子? 默认白子 先走*/
 
 @property (nonatomic, assign) BOOL isWin;
+@property (nonatomic, assign) BOOL canBeTap; /**< 能否被点击 */
+
 
 // 判断当前 局面状态
 - (BOOL)checkIsSuccessWithPieceObj: (PieceOBJ *)piceObj;

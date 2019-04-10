@@ -19,8 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 // 接受对方 返回的棋子
 - (void)backPoint: (CGPoint)point withOtherBody: (NSString *)bodyName;
 
-// 返回发现了代理
-- (void)findPeerName: (NSString *)peerName;
 @end
 
 @interface PPConnectManager : NSObject
@@ -32,6 +30,13 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)shareInstance;
 - (void)startServe;
 
+
+/**
+ 发生坐标
+
+ @param isBlack <#isBlack description#>
+ @param point <#point description#>
+ */
 - (void)sendMessageWithIsBlack: (BOOL) isBlack andPoint: (CGPoint)point;
 
 @end

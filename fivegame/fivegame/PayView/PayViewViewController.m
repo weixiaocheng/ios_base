@@ -12,8 +12,7 @@
 
 #define gridCount 15
 
-@interface PayViewViewController ()<PPConnectManagerDelegate,
-MCBrowserViewControllerDelegate>
+@interface PayViewViewController ()<PPConnectManagerDelegate>
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, assign) CGFloat gridWidth ;
 @property (nonatomic, strong) PayManager *manager;
@@ -21,6 +20,8 @@ MCBrowserViewControllerDelegate>
 @property (nonatomic, strong) UIButton *adServeBtn;
 @property (nonatomic, strong) UIButton *searchAdBtn;
 @property (nonatomic, strong) PPConnectManager *connectManager;
+
+
 @end
 
 @implementation PayViewViewController
@@ -28,7 +29,12 @@ MCBrowserViewControllerDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    /*
+     设置管理工具
+     */
     self.manager = [[PayManager alloc] init];
+    self.manager.canBeTap = true;
+    
     self.connectManager = [PPConnectManager shareInstance];
     self.connectManager.delegate = self;
     [self setUpView];
@@ -58,22 +64,13 @@ MCBrowserViewControllerDelegate>
     self.adServeBtn.frame = CGRectMake(100 , CGRectGetMaxY(beganBtn.frame) + 20, 100, 40);
     self.adServeBtn.backgroundColor = RGB16(0x999999);
     [self.adServeBtn addTarget:self.connectManager action:@selector(startServe) forControlEvents:UIControlEventTouchUpInside];
-    
-    self.searchAdBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.searchAdBtn setTitle:@"接受邀请" forState:UIControlStateNormal];
-    [self.view addSubview:self.searchAdBtn];
-    self.searchAdBtn.frame = CGRectMake(CGRectGetMaxX(self.adServeBtn.frame) + 20,  CGRectGetMaxY(beganBtn.frame) + 20, 100, 40);
-    self.searchAdBtn.backgroundColor = RGB16(0x999999);
-    [self.searchAdBtn addTarget:self.connectManager action:@selector(startClien) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)tapaction: (UITapGestureRecognizer *)tap
 {
-    
-    if (self.manager.isWin) {
+    if (self.manager.isWin || self.manager.canBeTap == false) {
         return;
     }
-    
     CGPoint point = [tap locationInView:self.imageView];
     NSInteger rol = (point.x - self.gridWidth * 0.5)/self.gridWidth;
     NSInteger cow = (point.y - self.gridWidth * 0.5)/self.gridWidth;
@@ -81,12 +78,15 @@ MCBrowserViewControllerDelegate>
     CGPoint piecPoint = CGPointMake(rol, cow);
     
     NSLog(@"\npoint : %@", NSStringFromCGPoint(piecPoint));
-    [self addPieseWithPoint:piecPoint];
+    BOOL add_success = [self addPieseWithPoint:piecPoint];
+    if (add_success) {
+        self.manager.canBeTap = false;
+    }
     [self.connectManager sendMessageWithIsBlack:self.manager.isBlack andPoint:piecPoint];
 }
 
 #pragma mark -- 添加棋子的坐标
-- (void)addPieseWithPoint: (CGPoint)point
+- (BOOL)addPieseWithPoint: (CGPoint)point
 {
     //转换成为对应的坐标点
     CGPoint arcPoint = CGPointZero;
@@ -98,7 +98,7 @@ MCBrowserViewControllerDelegate>
     piec_obj.point = point;
     
     if ([self.manager checkIsSuccessWithPieceObj:piec_obj] == false) {
-        return;
+        return false;
     }
     
     UIColor *color = [UIColor whiteColor];
@@ -110,10 +110,11 @@ MCBrowserViewControllerDelegate>
     
     if (self.manager.isWin) {
         [self someBoddyWinWithIsBlack:self.manager.isBlack];
-        return;
+        return false;
     }
     
     self.manager.isBlack = !self.manager.isBlack;
+    return true;
 }
 
 
@@ -210,39 +211,15 @@ MCBrowserViewControllerDelegate>
 
 - (void)backPoint:(CGPoint)point withOtherBody:(NSString *)bodyName
 {
+    self.manager.canBeTap = true;
     dispatch_async(dispatch_get_main_queue(), ^{
        [self addPieseWithPoint:point];
     });
 }
 
-- (void)findPeerName:(NSString *)peerName
-{
-    MCBrowserViewController *browservc = [[MCBrowserViewController alloc] initWithServiceType:@"rsp-receiver" session:self.connectManager.session];
-    browservc.delegate = self;
-    [self presentViewController:browservc animated:true completion:nil];
-}
 
 
-#pragma mark BrowserViewController附近用户列表视图相关代理方法
-/**
- *  选取相应用户
- *
- *  @param browserViewController 用户列表
- */
-- (void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController{
-    [self dismissViewControllerAnimated:YES completion:nil];
-    //关闭广播服务，停止其他人发现
-//    [_advertiser stop];
-}
-/**
- *  用户列表关闭
- *
- *  @param browserViewController 用户列表
- */
-- (void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController{
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-//    [_advertiser stop];
-}
+
+
 
 @end
