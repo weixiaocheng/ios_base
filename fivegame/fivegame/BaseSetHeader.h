@@ -60,6 +60,7 @@
 
 #define SwitchColor(x) [CommonMethod colorWithHexColorString:x]
 
+#define AppDelegateShowToast(title) [(AppDelegate*)[UIApplication sharedApplication].delegate showToastWithTitle:title];
 //不同屏幕尺寸字体适配
 #define kScreenWidthRatio  (UIScreen.mainScreen.bounds.size.width / (375.0*2))
 #define kScreenHeightRatio (UIScreen.mainScreen.bounds.size.height / (667.0*2))
@@ -77,4 +78,7 @@
 #else
 #define NSLog(...);
 #endif
+
+
+
 #endif /* BaseSetHeader_h */

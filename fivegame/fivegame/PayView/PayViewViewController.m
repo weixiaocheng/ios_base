@@ -21,7 +21,6 @@
 @property (nonatomic, strong) UIButton *searchAdBtn;
 @property (nonatomic, strong) PPConnectManager *connectManager;
 
-
 @end
 
 @implementation PayViewViewController
@@ -34,7 +33,7 @@
      */
     self.manager = [[PayManager alloc] init];
     self.manager.canBeTap = true;
-    
+
     self.connectManager = [PPConnectManager shareInstance];
     self.connectManager.delegate = self;
     [self setUpView];
@@ -68,9 +67,21 @@
 
 - (void)tapaction: (UITapGestureRecognizer *)tap
 {
-    if (self.manager.isWin || self.manager.canBeTap == false) {
+    
+    if (self.manager.isWin || self.manager.canBeTap == false ) {
         return;
     }
+    
+    if (self.manager.isAready == false) {
+        [self.view makeToast:@"您自己没有准备好"];
+        return;
+    }
+    
+    if (self.manager.matchAready == false) {
+        [self.view makeToast:@"您的对手没有准备好"];
+        return;
+    }
+    
     CGPoint point = [tap locationInView:self.imageView];
     NSInteger rol = (point.x - self.gridWidth * 0.5)/self.gridWidth;
     NSInteger cow = (point.y - self.gridWidth * 0.5)/self.gridWidth;
@@ -174,16 +185,20 @@
 
 - (void)someBoddyWinWithIsBlack: (BOOL)isBlack
 {
+    self.manager.isAready = false;
+    self.manager.matchAready = false;
     NSString *message = isBlack? @"黑子胜利✌️!" : @"白子胜利✌️!";
     UIAlertController *alertCtrl = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"点击了确定");
+        
     }];
     
     UIAlertAction *onceAngen = [UIAlertAction actionWithTitle:@"再战一局" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"点击了再来");
         [self beganOnce];
+        
     }];
     
     [alertCtrl addAction:sure];
@@ -196,6 +211,9 @@
     self.manager.isBlack = false;
     self.manager.alldownPieces = nil;
     self.manager.isWin = false;
+    self.manager.isAready = true;
+    
+    [self.connectManager sendReady];
     NSMutableArray *layerArr = [self.imageView.layer.sublayers copy];
     
     for (CAShapeLayer *layer in layerArr) {
@@ -206,6 +224,7 @@
 #pragma mark -- PPConnectManagerDelegate
 - (void)showPPAlterCtrl:(UIAlertController *)alertCtrl
 {
+    self.manager.isAready = true;
     [self presentViewController:alertCtrl animated:true completion:nil];
 }
 
@@ -217,9 +236,10 @@
     });
 }
 
-
-
-
+- (void)matchIsReady
+{
+    self.manager.matchAready = true;
+}
 
 
 @end

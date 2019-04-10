@@ -9,6 +9,7 @@
 #import "PayManager.h"
 
 @implementation PieceOBJ
+
 - (void)setPoint:(CGPoint)point
 {
     _point = point;
@@ -18,6 +19,7 @@
 @end
 
 @implementation PayManager
+
 - (NSMutableDictionary *)alldownPieces
 {
     if (!_alldownPieces) {

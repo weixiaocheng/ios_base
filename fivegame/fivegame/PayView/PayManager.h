@@ -23,9 +23,22 @@
 @property (nonatomic, assign) BOOL isWin;
 @property (nonatomic, assign) BOOL canBeTap; /**< 能否被点击 */
 
+/*
+ 对方是否准备好了
+ */
+@property (nonatomic, assign) BOOL matchAready;
+
+/**
+ 自己是否准备好了
+ */
+@property (nonatomic, assign) BOOL isAready;
+
 
 // 判断当前 局面状态
 - (BOOL)checkIsSuccessWithPieceObj: (PieceOBJ *)piceObj;
+
+
+
 @end
 
 

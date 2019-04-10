@@ -37,6 +37,7 @@ static PPConnectManager *manager;
 
 - (void)startServe
 {
+    AppDelegateShowToast(@"开启搜索");
     _peerID = [[MCPeerID alloc] initWithDisplayName:[UIDevice currentDevice].name];
     
     //为用户建立连接
@@ -53,12 +54,29 @@ static PPConnectManager *manager;
     [_nearbyServiceBrowser startBrowsingForPeers];
 }
 
-
+#pragma mark -- 发送落子 事件
 - (void)sendMessageWithIsBlack:(BOOL)isBlack andPoint:(CGPoint)point
 {
-    NSString *string = [NSString stringWithFormat:@"%@",NSStringFromCGPoint(point)];
-    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
+    [self sendMessage:NSStringFromCGPoint(point)];
+}
+
+#pragma mark -- 发送准备好了
+- (void)sendReady
+{
+    [self sendMessage:AEADY];
+}
+
+
+#pragma mark -- 发送消息
+- (void)sendMessage: (NSString *)msg
+{
+    NSData *data = [msg dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error = nil;
+    if (self.peerID == nil) {
+        AppDelegateShowToast(@"请先建立连接");
+        return;
+    }
+    
     [self.session sendData:data toPeers:@[self.peerID] withMode:MCSessionSendDataReliable error:&error];
     if (error) {
         NSLog(@"error : %@",error.localizedFailureReason);
@@ -94,6 +112,14 @@ static PPConnectManager *manager;
     NSLog(@"didReceiveData : %@",peerID);
     NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSLog(@"string: %@",string);
+    
+    if ([string isEqualToString:AEADY]) {
+        if ([self.delegate respondsToSelector:@selector(matchIsReady)]) {
+            [self.delegate matchIsReady];
+        }
+        return;
+    }
+    
     CGPoint point = CGPointFromString(string);
     if ([self.delegate respondsToSelector:@selector(backPoint:withOtherBody:)]) {
         [self.delegate backPoint:point withOtherBody:peerID.displayName];
@@ -133,14 +159,17 @@ static PPConnectManager *manager;
     [advertiser stopAdvertisingPeer];
     //交互选择框
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"%@请求与你建立连接", peerID.displayName] preferredStyle:UIAlertControllerStyleAlert];
+    
     UIAlertAction *accept = [UIAlertAction actionWithTitle:@"接受" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         invitationHandler(YES, self.session);
     }];
     [alert addAction:accept];
+    
     UIAlertAction *reject = [UIAlertAction actionWithTitle:@"拒绝" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         invitationHandler(NO, self.session);
     }];
     [alert addAction:reject];
+    
     if ([self.delegate respondsToSelector:@selector(showPPAlterCtrl:)]) {
         [self.delegate showPPAlterCtrl:alert];
     }

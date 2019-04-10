@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 // 接受对方 返回的棋子
 - (void)backPoint: (CGPoint)point withOtherBody: (NSString *)bodyName;
 
+// 对手准备好了
+- (void)matchIsReady;
+
 @end
 
 @interface PPConnectManager : NSObject
@@ -38,6 +41,12 @@ NS_ASSUME_NONNULL_BEGIN
  @param point <#point description#>
  */
 - (void)sendMessageWithIsBlack: (BOOL) isBlack andPoint: (CGPoint)point;
+
+
+/**
+ 发送准备好了
+ */
+- (void)sendReady;
 
 @end
 

@@ -52,5 +52,16 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-
+- (void)showToastWithTitle: (NSString *)title
+{
+    if (title == nil) {
+        return;
+    }
+    
+    if ([title isEqualToString:@"cancel"]) {
+        return;
+    }
+    
+    [self.window makeToast:title duration:1.5 position:CSToastPositionCenter];
+}
 @end
