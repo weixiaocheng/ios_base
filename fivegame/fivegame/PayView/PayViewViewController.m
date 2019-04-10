@@ -74,26 +74,27 @@
     }
     
     CGPoint point = [tap locationInView:self.imageView];
-//    NSLog(@"\npoint : %@", NSStringFromCGPoint(point));
-    [self addPieseWithPoint:point];
-    [self.connectManager sendMessageWithIsBlack:self.manager.isBlack andPoint:point];
-}
-
-#pragma mark -- 添加棋子的方法
-- (void)addPieseWithPoint: (CGPoint)point
-{
     NSInteger rol = (point.x - self.gridWidth * 0.5)/self.gridWidth;
     NSInteger cow = (point.y - self.gridWidth * 0.5)/self.gridWidth;
-    //    NSLog(@"\nrol : %ld \n cow: %ld", rol, cow);
     
+    CGPoint piecPoint = CGPointMake(rol, cow);
+    
+    NSLog(@"\npoint : %@", NSStringFromCGPoint(piecPoint));
+    [self addPieseWithPoint:piecPoint];
+    [self.connectManager sendMessageWithIsBlack:self.manager.isBlack andPoint:piecPoint];
+}
+
+#pragma mark -- 添加棋子的坐标
+- (void)addPieseWithPoint: (CGPoint)point
+{
     //转换成为对应的坐标点
     CGPoint arcPoint = CGPointZero;
-    arcPoint.x = (rol + 0.5) * self.gridWidth;
-    arcPoint.y = (cow + 0.5) * self.gridWidth;
+    arcPoint.x = (point.x + 0.5) * self.gridWidth;
+    arcPoint.y = (point.y + 0.5) * self.gridWidth;
     
     PieceOBJ *piec_obj = [[PieceOBJ alloc] init];
     piec_obj.isBlack = self.manager.isBlack;
-    piec_obj.point = CGPointMake(rol, cow);
+    piec_obj.point = point;
     
     if ([self.manager checkIsSuccessWithPieceObj:piec_obj] == false) {
         return;
