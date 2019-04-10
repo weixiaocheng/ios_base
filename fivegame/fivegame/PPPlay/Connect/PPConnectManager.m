@@ -14,7 +14,8 @@ static PPConnectManager *manager;
 
 @property (nonatomic, strong) MCNearbyServiceBrowser *nearbyServiceBrowser;
 @property (nonatomic, strong) MCNearbyServiceAdvertiser *nearbyServiceAdveriser;
-
+@property (nonatomic, strong) NSMutableArray *peerIDList;
+@property (nonatomic, strong) MCAdvertiserAssistant * advertiser;
 @end
 
 @implementation PPConnectManager
@@ -27,22 +28,30 @@ static PPConnectManager *manager;
     return manager;
 }
 
+- (NSMutableArray *)peerIDList
+{
+    if (!_peerIDList) {
+        _peerIDList = [NSMutableArray array];
+    }
+    return _peerIDList;
+}
+
 - (void)startServe
 {
-    MCPeerID *peerId = [[MCPeerID alloc] initWithDisplayName:[UIDevice currentDevice].name];
+    _peerID = [[MCPeerID alloc] initWithDisplayName:[UIDevice currentDevice].name];
     
-    self.session = [[MCSession alloc] initWithPeer:peerId securityIdentity:nil encryptionPreference:MCEncryptionRequired];
+    //为用户建立连接
+    _session = [[MCSession alloc]initWithPeer:_peerID];
     
     self.session.delegate = self;
-    
-    self.nearbyServiceBrowser = [[MCNearbyServiceBrowser alloc] initWithPeer:peerId serviceType:@"rsp-receiver"];
-    self.nearbyServiceBrowser.delegate = self;
-    [self.nearbyServiceBrowser startBrowsingForPeers];
-    NSLog(@"开始服务");
-    //广播通知
-    self.nearbyServiceAdveriser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:peerId discoveryInfo:nil serviceType:@"rsp-receiver"];
-    self.nearbyServiceAdveriser.delegate = self;
-    [self.nearbyServiceAdveriser startAdvertisingPeer];
+    _advertiser = [[MCAdvertiserAssistant alloc]initWithServiceType:@"rsp-receiver" discoveryInfo:nil session:_session];
+    //开始广播
+    [_advertiser start];
+    //设置发现服务(接收方)
+    _nearbyServiceBrowser = [[MCNearbyServiceBrowser alloc]initWithPeer:_peerID serviceType:@"rsp-receiver"];
+    //设置代理
+    _nearbyServiceBrowser.delegate = self;
+    [_nearbyServiceBrowser startBrowsingForPeers];
 }
 
 
@@ -62,14 +71,15 @@ static PPConnectManager *manager;
 {
     NSLog(@"\ninfo : %@", peerID);
     // 找到直接连接
-    [browser stopBrowsingForPeers];
     self.peerID = peerID;
     [self.nearbyServiceBrowser invitePeer:self.peerID toSession:self.session withContext:nil timeout:30];
+    [browser stopBrowsingForPeers];
 }
 
 - (void)browser:(MCNearbyServiceBrowser *)browser lostPeer:(MCPeerID *)peerID
 {
-    NSLog(@"节点丢失 : %@", peerID);
+    NSLog(@"节点丢失 : %@", peerID.displayName);
+    
 }
 
 - (void)browser:(MCNearbyServiceBrowser *)browser didNotStartBrowsingForPeers:(NSError *)error
@@ -101,6 +111,22 @@ static PPConnectManager *manager;
 
 - (void)session:(nonnull MCSession *)session peer:(nonnull MCPeerID *)peerID didChangeState:(MCSessionState)state {
     NSLog(@"didChangeState : %@",session);
+    switch (state) {
+        case MCSessionStateNotConnected:
+            NSLog(@"没有连接");
+            break;
+        case MCSessionStateConnecting:
+            NSLog(@"连接中");
+            break;
+        case MCSessionStateConnected:
+            NSLog(@"连接成功");
+            if (![self.peerIDList containsObject:peerID]) {
+                [self.peerIDList addObject:peerID];
+            }
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)advertiser:(nonnull MCNearbyServiceAdvertiser *)advertiser didReceiveInvitationFromPeer:(nonnull MCPeerID *)peerID withContext:(nullable NSData *)context invitationHandler:(nonnull void (^)(BOOL, MCSession * _Nullable))invitationHandler {

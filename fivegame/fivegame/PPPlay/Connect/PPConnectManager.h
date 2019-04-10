@@ -19,10 +19,13 @@ NS_ASSUME_NONNULL_BEGIN
 // 接受对方 返回的棋子
 - (void)backPoint: (CGPoint)point withOtherBody: (NSString *)bodyName;
 
+// 返回发现了代理
+- (void)findPeerName: (NSString *)peerName;
 @end
 
 @interface PPConnectManager : NSObject
 @property (nonatomic, weak)id<PPConnectManagerDelegate>delegate;
+
 @property (nonatomic, strong) MCSession *session;
 @property (nonatomic, strong) MCPeerID *peerID;
 

@@ -12,7 +12,8 @@
 
 #define gridCount 15
 
-@interface PayViewViewController ()<PPConnectManagerDelegate>
+@interface PayViewViewController ()<PPConnectManagerDelegate,
+MCBrowserViewControllerDelegate>
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, assign) CGFloat gridWidth ;
 @property (nonatomic, strong) PayManager *manager;
@@ -212,8 +213,36 @@
     dispatch_async(dispatch_get_main_queue(), ^{
        [self addPieseWithPoint:point];
     });
-    
 }
 
+- (void)findPeerName:(NSString *)peerName
+{
+    MCBrowserViewController *browservc = [[MCBrowserViewController alloc] initWithServiceType:@"rsp-receiver" session:self.connectManager.session];
+    browservc.delegate = self;
+    [self presentViewController:browservc animated:true completion:nil];
+}
+
+
+#pragma mark BrowserViewController附近用户列表视图相关代理方法
+/**
+ *  选取相应用户
+ *
+ *  @param browserViewController 用户列表
+ */
+- (void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    //关闭广播服务，停止其他人发现
+//    [_advertiser stop];
+}
+/**
+ *  用户列表关闭
+ *
+ *  @param browserViewController 用户列表
+ */
+- (void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+//    [_advertiser stop];
+}
 
 @end
