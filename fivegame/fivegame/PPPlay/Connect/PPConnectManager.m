@@ -11,7 +11,6 @@
 static PPConnectManager *manager;
 
 @interface PPConnectManager ()<MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCNearbyServiceAdvertiserDelegate>
-
 @property (nonatomic, strong) MCNearbyServiceBrowser *nearbyServiceBrowser;
 @property (nonatomic, strong) MCNearbyServiceAdvertiser *nearbyServiceAdveriser;
 @property (nonatomic, strong) NSMutableArray *peerIDList;

@@ -31,7 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)shareInstance;
 - (void)startServe;
-- (void)startClien;
 
 - (void)sendMessageWithIsBlack: (BOOL) isBlack andPoint: (CGPoint)point;
 
