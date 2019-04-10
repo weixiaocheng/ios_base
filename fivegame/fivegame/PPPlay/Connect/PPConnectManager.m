@@ -7,14 +7,14 @@
 //
 
 #import "PPConnectManager.h"
-#import <MultipeerConnectivity/MultipeerConnectivity.h>
+
 static PPConnectManager *manager;
 
 @interface PPConnectManager ()<MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCNearbyServiceAdvertiserDelegate>
-@property (nonatomic, strong) MCSession *session;
+
 @property (nonatomic, strong) MCNearbyServiceBrowser *nearbyServiceBrowser;
 @property (nonatomic, strong) MCNearbyServiceAdvertiser *nearbyServiceAdveriser;
-@property (nonatomic, strong) MCPeerID *peerID;
+
 @end
 
 @implementation PPConnectManager
@@ -39,19 +39,22 @@ static PPConnectManager *manager;
     self.nearbyServiceBrowser.delegate = self;
     [self.nearbyServiceBrowser startBrowsingForPeers];
     NSLog(@"开始服务");
-}
-
-- (void)startClien
-{
-    MCPeerID *peerID = [[MCPeerID alloc] initWithDisplayName:[UIDevice currentDevice].name];
-    self.session = [[MCSession alloc] initWithPeer:peerID securityIdentity:nil encryptionPreference:MCEncryptionRequired];
-    self.session.delegate = self;
-    
     //广播通知
-    self.nearbyServiceAdveriser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:peerID discoveryInfo:nil serviceType:@"rsp-receiver"];
+    self.nearbyServiceAdveriser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:peerId discoveryInfo:nil serviceType:@"rsp-receiver"];
     self.nearbyServiceAdveriser.delegate = self;
     [self.nearbyServiceAdveriser startAdvertisingPeer];
-    NSLog(@"开始搜索");
+}
+
+
+- (void)sendMessageWithIsBlack:(BOOL)isBlack andPoint:(CGPoint)point
+{
+    NSString *string = [NSString stringWithFormat:@"%@",NSStringFromCGPoint(point)];
+    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+    [self.session sendData:data toPeers:@[self.peerID] withMode:MCSessionSendDataReliable error:&error];
+    if (error) {
+        NSLog(@"error : %@",error.localizedFailureReason);
+    }
 }
 
 
@@ -80,6 +83,12 @@ static PPConnectManager *manager;
 
 - (void)session:(nonnull MCSession *)session didReceiveData:(nonnull NSData *)data fromPeer:(nonnull MCPeerID *)peerID {
     NSLog(@"didReceiveData : %@",peerID);
+    NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"string: %@",string);
+    CGPoint point = CGPointFromString(string);
+    if ([self.delegate respondsToSelector:@selector(backPoint:withOtherBody:)]) {
+        [self.delegate backPoint:point withOtherBody:peerID.displayName];
+    }
 }
 
 - (void)session:(nonnull MCSession *)session didReceiveStream:(nonnull NSInputStream *)stream withName:(nonnull NSString *)streamName fromPeer:(nonnull MCPeerID *)peerID {

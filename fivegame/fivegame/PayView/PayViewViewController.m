@@ -75,9 +75,16 @@
     
     CGPoint point = [tap locationInView:self.imageView];
 //    NSLog(@"\npoint : %@", NSStringFromCGPoint(point));
+    [self addPieseWithPoint:point];
+    [self.connectManager sendMessageWithIsBlack:self.manager.isBlack andPoint:point];
+}
+
+#pragma mark -- 添加棋子的方法
+- (void)addPieseWithPoint: (CGPoint)point
+{
     NSInteger rol = (point.x - self.gridWidth * 0.5)/self.gridWidth;
     NSInteger cow = (point.y - self.gridWidth * 0.5)/self.gridWidth;
-//    NSLog(@"\nrol : %ld \n cow: %ld", rol, cow);
+    //    NSLog(@"\nrol : %ld \n cow: %ld", rol, cow);
     
     //转换成为对应的坐标点
     CGPoint arcPoint = CGPointZero;
@@ -105,8 +112,8 @@
     }
     
     self.manager.isBlack = !self.manager.isBlack;
-   
 }
+
 
 // 画一个标准的棋盘
 - (UIImage *)drawImageCheckerboard
@@ -198,5 +205,14 @@
 {
     [self presentViewController:alertCtrl animated:true completion:nil];
 }
+
+- (void)backPoint:(CGPoint)point withOtherBody:(NSString *)bodyName
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+       [self addPieseWithPoint:point];
+    });
+    
+}
+
 
 @end

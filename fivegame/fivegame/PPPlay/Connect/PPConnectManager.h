@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
 @class PPConnectManager;
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,14 +16,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)showPPAlterCtrl: (UIAlertController *)alertCtrl;
 
+// 接受对方 返回的棋子
+- (void)backPoint: (CGPoint)point withOtherBody: (NSString *)bodyName;
+
 @end
 
 @interface PPConnectManager : NSObject
 @property (nonatomic, weak)id<PPConnectManagerDelegate>delegate;
+@property (nonatomic, strong) MCSession *session;
+@property (nonatomic, strong) MCPeerID *peerID;
 
 + (instancetype)shareInstance;
 - (void)startServe;
 - (void)startClien;
+
+- (void)sendMessageWithIsBlack: (BOOL) isBlack andPoint: (CGPoint)point;
+
 @end
 
 NS_ASSUME_NONNULL_END
