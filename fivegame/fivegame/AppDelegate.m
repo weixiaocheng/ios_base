@@ -19,8 +19,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    PayViewViewController *startGameVC = [[PayViewViewController alloc] init];
-    self.window.rootViewController = startGameVC;
+    StartGameViewController *startGameVC = [[StartGameViewController alloc] init];
+    UINavigationController *navgationvc = [[UINavigationController alloc] initWithRootViewController:startGameVC];
+    self.window.rootViewController = navgationvc;
     [self.window makeKeyAndVisible];
     return YES;
 }

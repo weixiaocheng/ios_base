@@ -13,6 +13,9 @@
 #define gridCount 15
 
 @interface PayViewViewController ()<PPConnectManagerDelegate>
+{
+    UIButton *_beganBtn;
+}
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, assign) CGFloat gridWidth ;
 @property (nonatomic, strong) PayManager *manager;
@@ -27,6 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
     /*
      设置管理工具
@@ -53,8 +57,8 @@
     UIButton *beganBtn = [UIButton buttonWithType:UIButtonTypeSystem];
     beganBtn.frame = CGRectMake(100, CGRectGetMaxY(self.imageView.frame) + 20, 100, 40);
     [beganBtn addTarget:self action:@selector(beganOnce) forControlEvents:UIControlEventTouchUpInside];
-    [beganBtn setTitle:@"重新开局" forState:UIControlStateNormal];
-    
+    [beganBtn setTitle:@"开局" forState:UIControlStateNormal];
+    _beganBtn = beganBtn;
     [self.view addSubview:beganBtn];
     
     self.adServeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -208,6 +212,7 @@
 
 - (void)beganOnce
 {
+    [_beganBtn setTitle:@"重新开局" forState:UIControlStateNormal];
     self.manager.isBlack = false;
     self.manager.alldownPieces = nil;
     self.manager.isWin = false;
