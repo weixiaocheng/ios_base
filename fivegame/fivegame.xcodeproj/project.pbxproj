@@ -595,7 +595,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 56L859Z482;
+				DEVELOPMENT_TEAM = A877RB4F96;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/fivegame/PrefixHeader.pch";
 				INFOPLIST_FILE = fivegame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -615,7 +615,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 56L859Z482;
+				DEVELOPMENT_TEAM = A877RB4F96;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/fivegame/PrefixHeader.pch";
 				INFOPLIST_FILE = fivegame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;

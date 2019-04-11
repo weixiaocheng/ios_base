@@ -22,6 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 // 对手准备好了
 - (void)matchIsReady;
 
+// 对手是否准备好了
+- (BOOL)getMatchIsReady;
+
 @end
 
 @interface PPConnectManager : NSObject
@@ -47,6 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
  发送准备好了
  */
 - (void)sendReady;
+
+- (void)askIsReady;
 
 @end
 

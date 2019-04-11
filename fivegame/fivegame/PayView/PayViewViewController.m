@@ -9,6 +9,7 @@
 #import "PayViewViewController.h"
 #import "PayManager.h"
 #import "../../fivegame/PPPlay/Connect/PPConnectManager.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 #define gridCount 15
 
@@ -48,7 +49,7 @@
     self.imageView = [[UIImageView alloc] initWithImage:[self drawImageCheckerboard]];
     [self.view addSubview:self.imageView];
     self.imageView.frame = CGRectMake(15, Height_NavBar + 50, SCREEN_WIDTHL - 30, SCREEN_WIDTHL - 30);
-    self.imageView.backgroundColor = [UIColor yellowColor];
+    self.imageView.backgroundColor = RGB16(0xCD9B1D);
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapaction:)];
     [self.imageView addGestureRecognizer:tap];
@@ -83,6 +84,7 @@
     
     if (self.manager.matchAready == false) {
         [self.view makeToast:@"您的对手没有准备好"];
+        [self.connectManager askIsReady];
         return;
     }
     
@@ -116,7 +118,7 @@
         return false;
     }
     
-    UIColor *color = [UIColor whiteColor];
+    UIColor *color = RGB16(0xF7F7F7);
     if (self.manager.isBlack) {
         color = [UIColor blackColor];
     }
@@ -246,5 +248,15 @@
     self.manager.matchAready = true;
 }
 
+- (BOOL)getMatchIsReady
+{
+    if (self.manager.isAready == false) {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+        dispatch_async(dispatch_get_main_queue(), ^{
+           AppDelegateShowToast(@"请准备");
+        });
+    }
+    return self.manager.isAready;
+}
 
 @end

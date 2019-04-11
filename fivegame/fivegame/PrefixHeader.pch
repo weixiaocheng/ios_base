@@ -19,6 +19,6 @@
  * 通讯协议
  */
 #define AEADY @"ready" /**< 传递准备信息 */
-
+#define ISAEADY @"isReady" /**< 发送信息 是否准备好了 */
 
 #endif /* PrefixHeader_pch */

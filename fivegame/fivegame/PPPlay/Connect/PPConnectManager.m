@@ -35,22 +35,32 @@ static PPConnectManager *manager;
     return _peerIDList;
 }
 
-- (void)startServe
+- (void)createMCsession
 {
-    AppDelegateShowToast(@"开启搜索");
     _peerID = [[MCPeerID alloc] initWithDisplayName:[UIDevice currentDevice].name];
     
     //为用户建立连接
     _session = [[MCSession alloc]initWithPeer:_peerID];
-    
     self.session.delegate = self;
     _advertiser = [[MCAdvertiserAssistant alloc]initWithServiceType:@"rsp-receiver" discoveryInfo:nil session:_session];
-    //开始广播
-    [_advertiser start];
-    //设置发现服务(接收方)
+    
     _nearbyServiceBrowser = [[MCNearbyServiceBrowser alloc]initWithPeer:_peerID serviceType:@"rsp-receiver"];
     //设置代理
     _nearbyServiceBrowser.delegate = self;
+}
+
+- (void)startServe
+{
+    AppDelegateShowToast(@"开启搜索");
+    if (_peerID == nil) {
+        [self createMCsession];
+    }else{
+        [_advertiser stop];
+        [_nearbyServiceBrowser stopBrowsingForPeers];
+    }
+    //开始广播
+    [_advertiser start];
+    //设置发现服务(接收方)
     [_nearbyServiceBrowser startBrowsingForPeers];
 }
 
@@ -66,6 +76,11 @@ static PPConnectManager *manager;
     [self sendMessage:AEADY];
 }
 
+#pragma mark -- 发送请求 获取是否准备好了
+- (void)askIsReady
+{
+    [self sendMessage:ISAEADY];
+}
 
 #pragma mark -- 发送消息
 - (void)sendMessage: (NSString *)msg
@@ -115,7 +130,17 @@ static PPConnectManager *manager;
     
     if ([string isEqualToString:AEADY]) {
         if ([self.delegate respondsToSelector:@selector(matchIsReady)]) {
+            
             [self.delegate matchIsReady];
+        }
+        return;
+    }else if ([string isEqualToString:ISAEADY])
+    {
+        if ([self.delegate respondsToSelector:@selector(getMatchIsReady)]) {
+            // 如果对方已经准备好了 返回已经准备好了信息
+            if ([self.delegate getMatchIsReady]){
+                [self sendReady];
+            }
         }
         return;
     }
@@ -156,6 +181,13 @@ static PPConnectManager *manager;
 
 - (void)advertiser:(nonnull MCNearbyServiceAdvertiser *)advertiser didReceiveInvitationFromPeer:(nonnull MCPeerID *)peerID withContext:(nullable NSData *)context invitationHandler:(nonnull void (^)(BOOL, MCSession * _Nullable))invitationHandler {
     NSLog(@"didReceiveInvitationFromPeer : %@", invitationHandler);
+    
+    if (self.peerID == peerID) {
+        NSLog(@"重新连接");
+        invitationHandler(YES, self.session);
+        return;
+    }
+    
     [advertiser stopAdvertisingPeer];
     //交互选择框
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:[NSString stringWithFormat:@"%@请求与你建立连接", peerID.displayName] preferredStyle:UIAlertControllerStyleAlert];
