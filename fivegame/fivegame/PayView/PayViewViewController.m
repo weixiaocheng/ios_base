@@ -25,9 +25,22 @@
 @property (nonatomic, strong) UIButton *searchAdBtn;
 @property (nonatomic, strong) PPConnectManager *connectManager;
 
+@property (nonatomic, strong) UITextView *textView;
+
 @end
 
 @implementation PayViewViewController
+
+- (UITextView *)textView
+{
+    if (!_textView) {
+        _textView = [[UITextView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+        _textView.userInteractionEnabled = false;
+        _textView.layer.borderColor = RGB16(0xf7f7f7).CGColor;
+        _textView.layer.borderWidth = 2;
+    }
+    return _textView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -68,6 +81,14 @@
     self.adServeBtn.frame = CGRectMake(100 , CGRectGetMaxY(beganBtn.frame) + 20, 100, 40);
     self.adServeBtn.backgroundColor = RGB16(0x999999);
     [self.adServeBtn addTarget:self.connectManager action:@selector(startServe) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:self.textView];
+    [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.adServeBtn.mas_bottom).offset(KCAdaptedWidth(20));
+        make.left.equalTo(self.view).offset(KCAdaptedWidth(20));
+        make.right.equalTo(self.view).offset(KCAdaptedWidth(-20));
+        make.bottom.equalTo(self.view.mas_bottom).offset(-20- Height_BottomSafe);
+    }];
 }
 
 - (void)tapaction: (UITapGestureRecognizer *)tap
@@ -240,6 +261,7 @@
     self.manager.canBeTap = true;
     dispatch_async(dispatch_get_main_queue(), ^{
        [self addPieseWithPoint:point];
+        self.textView.text = [NSString stringWithFormat:@"%@\n您的对手下子了\n位置在: %@",self.textView.text,NSStringFromCGPoint(point)];
     });
 }
 
@@ -254,6 +276,7 @@
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
         dispatch_async(dispatch_get_main_queue(), ^{
            AppDelegateShowToast(@"请准备");
+            self.textView.text = [NSString stringWithFormat:@"%@\n请准备开局",self.textView.text];
         });
     }
     return self.manager.isAready;

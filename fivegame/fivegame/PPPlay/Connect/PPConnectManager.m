@@ -14,7 +14,7 @@ static PPConnectManager *manager;
 @property (nonatomic, strong) MCNearbyServiceBrowser *nearbyServiceBrowser;
 @property (nonatomic, strong) MCNearbyServiceAdvertiser *nearbyServiceAdveriser;
 @property (nonatomic, strong) NSMutableArray *peerIDList;
-@property (nonatomic, strong) MCAdvertiserAssistant * advertiser;
+//@property (nonatomic, strong) MCAdvertiserAssistant * advertiser;
 @end
 
 @implementation PPConnectManager
@@ -42,8 +42,9 @@ static PPConnectManager *manager;
     //为用户建立连接
     _session = [[MCSession alloc]initWithPeer:_peerID];
     self.session.delegate = self;
-    _advertiser = [[MCAdvertiserAssistant alloc]initWithServiceType:@"rsp-receiver" discoveryInfo:nil session:_session];
-    
+//    _advertiser = [[nearbyServiceBrowser alloc]initWithServiceType:@"rsp-receiver" discoveryInfo:nil session:_session];
+    _nearbyServiceAdveriser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:_peerID discoveryInfo:nil serviceType:@"rsp-receiver"];
+    _nearbyServiceAdveriser.delegate = self;
     _nearbyServiceBrowser = [[MCNearbyServiceBrowser alloc]initWithPeer:_peerID serviceType:@"rsp-receiver"];
     //设置代理
     _nearbyServiceBrowser.delegate = self;
@@ -55,11 +56,11 @@ static PPConnectManager *manager;
     if (_peerID == nil) {
         [self createMCsession];
     }else{
-        [_advertiser stop];
+        [_nearbyServiceAdveriser stopAdvertisingPeer];
         [_nearbyServiceBrowser stopBrowsingForPeers];
     }
     //开始广播
-    [_advertiser start];
+    [_nearbyServiceAdveriser startAdvertisingPeer];
     //设置发现服务(接收方)
     [_nearbyServiceBrowser startBrowsingForPeers];
 }
@@ -182,9 +183,11 @@ static PPConnectManager *manager;
 - (void)advertiser:(nonnull MCNearbyServiceAdvertiser *)advertiser didReceiveInvitationFromPeer:(nonnull MCPeerID *)peerID withContext:(nullable NSData *)context invitationHandler:(nonnull void (^)(BOOL, MCSession * _Nullable))invitationHandler {
     NSLog(@"didReceiveInvitationFromPeer : %@", invitationHandler);
     
-    if (self.peerID == peerID) {
+    
+    if ([self.peerIDList containsObject:peerID]) {
         NSLog(@"重新连接");
         invitationHandler(YES, self.session);
+        [advertiser stopAdvertisingPeer];
         return;
     }
     
