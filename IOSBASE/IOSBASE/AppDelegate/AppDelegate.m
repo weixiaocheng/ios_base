@@ -19,7 +19,8 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    NSString *class_name = @"ViewController";
+//    NSString *class_name = @"ViewController";
+     NSString *class_name = @"BezierPathViewController";
     id vctrl =  [[NSClassFromString(class_name) alloc] init];
     UINavigationController *navctrl = [[UINavigationController alloc] initWithRootViewController:vctrl];
     self.window.rootViewController = navctrl;

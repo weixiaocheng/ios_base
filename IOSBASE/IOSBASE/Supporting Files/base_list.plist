@@ -97,7 +97,7 @@
 				<key>name</key>
 				<string>UIBezierPath 贝塞尔曲线</string>
 				<key>controller_name</key>
-				<string>BezierPath ViewController</string>
+				<string>BezierPathViewController</string>
 			</dict>
 			<dict>
 				<key>name</key>
