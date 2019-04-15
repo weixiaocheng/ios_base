@@ -8,8 +8,9 @@
 
 #import "BezierPathViewController.h"
 #import "UIBezierPathView.h"
+#import "PieceView.h"
 @interface BezierPathViewController ()
-@property (nonatomic, strong) UIBezierPathView *pathView;
+@property (nonatomic, strong) PieceView *pathView;
 @end
 
 @implementation BezierPathViewController
@@ -17,13 +18,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.translucent = false;
-    self.pathView  = [[UIBezierPathView alloc] initWithFrame:self.view.bounds];
+    self.pathView  = [[PieceView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+//    self.pathView.color = [UIColor whiteColor];
     [self.view addSubview:self.pathView];
 }
 
-- (void)drawBackView
-{
-    
-}
+
 
 @end

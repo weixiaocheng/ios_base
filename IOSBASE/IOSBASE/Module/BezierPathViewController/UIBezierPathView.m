@@ -195,11 +195,10 @@
 {
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     NSArray *gradientColors = @[(id)[UIColor whiteColor].CGColor, (id)[UIColor blackColor].CGColor];
-    CGFloat gradientLocaions[] = {0, 1};
+    CGFloat gradientLocaions[] = {0, 0.5};
     CGGradientRef dradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)gradientColors, gradientLocaions);
     CGPoint startCenter = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
     CGFloat radius = MAX(CGRectGetHeight(rect), CGRectGetWidth(rect));
-    
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextDrawRadialGradient(context, dradient,

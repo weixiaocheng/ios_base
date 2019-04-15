@@ -18,6 +18,7 @@
 		183BB7772255F40A00F04933 /* DynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BB7762255F40A00F04933 /* DynamicViewController.m */; };
 		184697E62261741C008CEBAE /* BezierPathViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184697E52261741C008CEBAE /* BezierPathViewController.m */; };
 		184697E9226174BB008CEBAE /* UIBezierPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 184697E8226174BB008CEBAE /* UIBezierPathView.m */; };
+		18531F3F22641478001D4224 /* PieceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18531F3E22641478001D4224 /* PieceView.m */; };
 		186129FE22559BB800C6B3E7 /* ColletionviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186129FD22559BB800C6B3E7 /* ColletionviewController.m */; };
 		18612A012255A53400C6B3E7 /* WaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18612A002255A53400C6B3E7 /* WaterFlowLayout.m */; };
 		18612A052255B8AD00C6B3E7 /* WebviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18612A042255B8AD00C6B3E7 /* WebviewController.m */; };
@@ -85,6 +86,8 @@
 		184697E52261741C008CEBAE /* BezierPathViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierPathViewController.m; sourceTree = "<group>"; };
 		184697E7226174BB008CEBAE /* UIBezierPathView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIBezierPathView.h; sourceTree = "<group>"; };
 		184697E8226174BB008CEBAE /* UIBezierPathView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIBezierPathView.m; sourceTree = "<group>"; };
+		18531F3D22641478001D4224 /* PieceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PieceView.h; sourceTree = "<group>"; };
+		18531F3E22641478001D4224 /* PieceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PieceView.m; sourceTree = "<group>"; };
 		186129FC22559BB800C6B3E7 /* ColletionviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColletionviewController.h; sourceTree = "<group>"; };
 		186129FD22559BB800C6B3E7 /* ColletionviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColletionviewController.m; sourceTree = "<group>"; };
 		186129FF2255A53400C6B3E7 /* WaterFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WaterFlowLayout.h; sourceTree = "<group>"; };
@@ -200,6 +203,8 @@
 				184697E52261741C008CEBAE /* BezierPathViewController.m */,
 				184697E7226174BB008CEBAE /* UIBezierPathView.h */,
 				184697E8226174BB008CEBAE /* UIBezierPathView.m */,
+				18531F3D22641478001D4224 /* PieceView.h */,
+				18531F3E22641478001D4224 /* PieceView.m */,
 			);
 			path = BezierPathViewController;
 			sourceTree = "<group>";
@@ -714,6 +719,7 @@
 				183BB76F2255DFDB00F04933 /* ElasticAnimationCtrl.m in Sources */,
 				18612A012255A53400C6B3E7 /* WaterFlowLayout.m in Sources */,
 				18EED27522521A4700ACEF25 /* ViewManager.m in Sources */,
+				18531F3F22641478001D4224 /* PieceView.m in Sources */,
 				186129FE22559BB800C6B3E7 /* ColletionviewController.m in Sources */,
 				18CDE2AA225306D70000F7B2 /* CommonTools.m in Sources */,
 				18655E7B225AFFE000442378 /* CABasicAnimationVController.m in Sources */,
